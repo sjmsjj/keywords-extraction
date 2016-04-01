@@ -1,0 +1,14 @@
+we develop a new graphical representation for interactive partially
+observable markov decision processes (i-pomdps) that is 
+significantly more transparent and semantically clear than the previous
+representation. these graphical models called interactive dynamic
+influence diagrams (i-dids) seek to explicitly model the structure
+that is often present in real-world problems by decomposing the 
+situation into chance and decision variables, and the dependencies 
+between the variables. i-dids generalize dids, which may be viewed
+as graphical representations of pomdps, to multiagent settings in
+the same way that i-pomdps generalize pomdps. i-dids may be
+used to compute the policy of an agent online as the agent acts and
+observes in a setting that is populated by other interacting agents.
+using several examples, we show how i-dids may be applied and
+demonstrate their usefulness.

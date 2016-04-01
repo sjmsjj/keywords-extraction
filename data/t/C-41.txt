@@ -1,0 +1,16 @@
+a challenging problem faced by researchers and developers
+of distributed real-time and embedded (dre) systems is 
+devising and implementing effective adaptive resource 
+management strategies that can meet end-to-end quality of service
+(qos) requirements in varying operational conditions. this
+paper presents two contributions to research in adaptive 
+resource management for dre systems. first, we describe the
+structure and functionality of the hybrid adaptive 
+resourcemanagement middleware (hyarm), which provides 
+adaptive resource management using hybrid control techniques
+for adapting to workload fluctuations and resource 
+availability. second, we evaluate the adaptive behavior of hyarm
+via experiments on a dre multimedia system that distributes
+video in real-time. our results indicate that hyarm yields
+predictable, stable, and high system performance, even in the
+face of fluctuating workload and resource availability.

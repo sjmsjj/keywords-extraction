@@ -1,0 +1,18 @@
+this paper describes the design, implementation and 
+evaluation of a search and rescue system called cenwits. cenwits
+uses several small, commonly-available rf-based sensors,
+and a small number of storage and processing devices. it is
+designed for search and rescue of people in emergency 
+situations in wilderness areas. a key feature of cenwits is that
+it does not require a continuously connected sensor network
+for its operation. it is designed for an intermittently 
+connected network that provides only occasional connectivity.
+it makes a judicious use of the combined storage capability
+of sensors to filter, organize and store important 
+information, combined battery power of sensors to ensure that the
+system remains operational for longer time periods, and 
+intermittent network connectivity to propagate information
+to a processing center. a prototype of cenwits has been
+implemented using berkeley mica2 motes. the paper 
+describes this implementation and reports on the performance
+measured from it.

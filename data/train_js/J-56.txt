@@ -1,0 +1,29 @@
+bids submitted in auctions are usually treated as enforceable 
+commitments in most bidding and auction theory literature. in reality
+bidders often withdraw winning bids before the transaction when
+it is in their best interests to do so. given a bid withdrawal in a
+combinatorial auction, finding an alternative repair solution of 
+adequate revenue without causing undue disturbance to the 
+remaining winning bids in the original solution may be difficult or even
+impossible. we have called this the bid-taker"s exposure 
+problem. when faced with such unreliable bidders, it is preferable for
+the bid-taker to preempt such uncertainty by having a solution that
+is robust to bid withdrawal and provides a guarantee that possible
+withdrawals may be repaired easily with a bounded loss in revenue.
+in this paper, we propose an approach to addressing the 
+bidtaker"s exposure problem. firstly, we use the weighted super 
+solutions framework [13], from the field of constraint programming,
+to solve the problem of finding a robust solution. a weighted super
+solution guarantees that any subset of bids likely to be withdrawn
+can be repaired to form a new solution of at least a given revenue by
+making limited changes. secondly, we introduce an auction model
+that uses a form of leveled commitment contract [26, 27], which
+we have called mutual bid bonds, to improve solution reparability
+by facilitating backtracking on winning bids by the bid-taker. we
+then examine the trade-off between robustness and revenue in 
+different economically motivated auction scenarios for different 
+constraints on the revenue of repair solutions. we also demonstrate
+experimentally that fewer winning bids partake in robust solutions,
+thereby reducing any associated overhead in dealing with extra 
+bidders. robust solutions can also provide a means of selectively 
+discriminating against distrusted bidders in a measured manner.

@@ -1,0 +1,27 @@
+air traffic flow management is one of the fundamental 
+challenges facing the federal aviation administration (faa)
+today. the faa estimates that in 2005 alone, there were
+over 322,000 hours of delays at a cost to the industry in 
+excess of three billion dollars. finding reliable and adaptive
+solutions to the flow management problem is of paramount
+importance if the next generation air transportation 
+systems are to achieve the stated goal of accommodating three
+times the current traffic volume. this problem is 
+particularly complex as it requires the integration and/or 
+coordination of many factors including: new data (e.g., changing
+weather info), potentially conflicting priorities (e.g., 
+different airlines), limited resources (e.g., air traffic controllers)
+and very heavy traffic volume (e.g., over 40,000 flights over
+the us airspace).
+in this paper we use facet - an air traffic flow simulator
+developed at nasa and used extensively by the faa and
+industry - to test a multi-agent algorithm for traffic flow
+management. an agent is associated with a fix (a specific
+location in 2d space) and its action consists of setting the
+separation required among the airplanes going though that
+fix. agents use reinforcement learning to set this separation
+and their actions speed up or slow down traffic to manage
+congestion. our facet based results show that agents 
+receiving personalized rewards reduce congestion by up to 45%
+over agents receiving a global reward and by up to 67% over
+a current industry approach (monte carlo estimation).

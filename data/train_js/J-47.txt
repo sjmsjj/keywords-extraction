@@ -1,0 +1,10 @@
+we embark on a systematic analysis of the power and 
+limitations of iterative combinatorial auctions. most existing
+iterative combinatorial auctions are based on repeatedly 
+suggesting prices for bundles of items, and querying the bidders
+for their demand under these prices. we prove a large
+number of results showing the boundaries of what can be
+achieved by auctions of this kind. we first focus on auctions
+that use a polynomial number of demand queries, and then
+we analyze the power of different kinds of ascending-price
+auctions.

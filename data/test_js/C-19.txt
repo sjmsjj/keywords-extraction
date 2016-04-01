@@ -1,0 +1,10 @@
+in this paper we compare two approaches to the design of
+protocol frameworks - tools for implementing modular 
+network protocols. the most common approach uses events as
+the main abstraction for a local interaction between 
+protocol modules. we argue that an alternative approach, that
+is based on service abstraction, is more suitable for 
+expressing modular protocols. it also facilitates advanced features
+in the design of protocols, such as dynamic update of 
+distributed protocols. we then describe an experimental 
+implementation of a service-based protocol framework in java.

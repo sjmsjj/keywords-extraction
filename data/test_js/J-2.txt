@@ -1,0 +1,35 @@
+for allocation problems with one or more items, the 
+wellknown vickrey-clarke-groves (vcg) mechanism is efficient,
+strategy-proof, individually rational, and does not incur a
+deficit. however, the vcg mechanism is not (strongly)
+budget balanced: generally, the agents" payments will sum
+to more than 0. if there is an auctioneer who is selling
+the items, this may be desirable, because the surplus 
+payment corresponds to revenue for the auctioneer. however, if
+the items do not have an owner and the agents are merely
+interested in allocating the items efficiently among 
+themselves, any surplus payment is undesirable, because it will
+have to flow out of the system of agents. in 2006, 
+cavallo [3] proposed a mechanism that redistributes some of
+the vcg payment back to the agents, while maintaining
+efficiency, strategy-proofness, individual rationality, and the
+non-deficit property. in this paper, we extend this result in a
+restricted setting. we study allocation settings where there
+are multiple indistinguishable units of a single good, and
+agents have unit demand. (for this specific setting, 
+cavallo"s mechanism coincides with a mechanism proposed by
+bailey in 1997 [2].) here we propose a family of mechanisms
+that redistribute some of the vcg payment back to the
+agents. all mechanisms in the family are efficient, 
+strategyproof, individually rational, and never incur a deficit. the
+family includes the bailey-cavallo mechanism as a special
+case. we then provide an optimization model for finding the
+optimal mechanism-that is, the mechanism that maximizes
+redistribution in the worst case-inside the family, and show
+how to cast this model as a linear program. we give both
+numerical and analytical solutions of this linear program,
+and the (unique) resulting mechanism shows significant 
+improvement over the bailey-cavallo mechanism (in the worst
+case). finally, we prove that the obtained mechanism is 
+optimal among all anonymous deterministic mechanisms that
+satisfy the above properties.

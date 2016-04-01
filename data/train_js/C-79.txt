@@ -1,0 +1,6 @@
+this paper describes a cross-layer approach to designing robust
+p2p system over mobile ad-hoc networks. the design is based on
+simple functional primitives that allow routing at both p2p and
+network layers to be integrated to reduce overhead. with these
+primitives, the paper addresses various load balancing techniques.
+preliminary simulation results are also presented.

@@ -1,0 +1,46 @@
+in a future networked physical world, a myriad of smart
+sensors and actuators assess and control aspects of their 
+environments and autonomously act in response to it. 
+examples range in telematics, traffic management, team robotics
+or home automation to name a few. to a large extent, such
+systems operate proactively and independently of direct 
+human control driven by the perception of the environment and
+the ability to organize respective computations dynamically.
+the challenging characteristics of these applications include
+sentience and autonomy of components, issues of 
+responsiveness and safety criticality, geographical dispersion, mobility
+and evolution. a crucial design decision is the choice of
+the appropriate abstractions and interaction mechanisms.
+looking to the basic building blocks of such systems we
+may find components which comprise mechanical 
+components, hardware and software and a network interface, thus
+these components have different characteristics compared to
+pure software components. they are able to spontaneously
+disseminate information in response to events observed in
+the physical environment or to events received from other
+component via the network interface. larger autonomous
+components may be composed recursively from these 
+building blocks.
+the paper describes an architectural framework and a
+middleware supporting a component-based system and an
+integrated view on events-based communication comprising
+the real world events and the events generated in the 
+system. it starts by an outline of the component-based system
+construction. the generic event architecture gear is 
+introduced which describes the event-based interaction between
+the components via a generic event layer. the generic event
+layer hides the different communication channels including
+∗this work was partially supported by the ec, through
+project ist-2000-26031 (cortex), and by the fct,
+through the large-scale informatic systems 
+laboratory (lasige) and project posi/1999/chs/33996 
+(defeats).
+the interactions through the environment. an appropriate
+middleware is presented which reflects these needs and 
+allows to specify events which have quality attributes to 
+express temporal constraints. this is complemented by the
+notion of event channels which are abstractions of the 
+underlying network and allow to enforce quality attributes. they
+are established prior to interaction to reserve the needed
+computational and network resources for highly predictable
+event dissemination.

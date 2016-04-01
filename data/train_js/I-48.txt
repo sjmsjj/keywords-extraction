@@ -1,0 +1,20 @@
+we develop a model of normative systems in which agents are 
+assumed to have multiple goals of increasing priority, and 
+investigate the computational complexity and game theoretic properties of
+this model. in the underlying model of normative systems, we use
+kripke structures to represent the possible transitions of a 
+multiagent system. a normative system is then simply a subset of the
+kripke structure, which contains the arcs that are forbidden by the
+normative system. we specify an agent"s goals as a hierarchy of
+formulae of computation tree logic (ctl), a widely used logic
+for representing the properties of kripke structures: the intuition is
+that goals further up the hierarchy are preferred by the agent over
+those that appear further down the hierarchy. using this scheme,
+we define a model of ordinal utility, which in turn allows us to
+interpret our kripke-based normative systems as games, in which
+agents must determine whether to comply with the normative 
+system or not. we then characterise the computational complexity of
+a number of decision problems associated with these kripke-based
+normative system games; for example, we show that the 
+complexity of checking whether there exists a normative system which has
+the property of being a nash implementation is np-complete.

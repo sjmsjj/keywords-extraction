@@ -1,0 +1,5 @@
+this paper considers the composition of a dids (distributed
+intrusion detection system) by integrating heterogeneous idss
+(intrusion detection systems). a grid middleware is used for this
+integration. in addition, an architecture for this integration is
+proposed and validated through simulation.

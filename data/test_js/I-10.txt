@@ -1,0 +1,15 @@
+this article deals with the problem of collaborative 
+learning in a multi-agent system. here each agent can update
+incrementally its beliefs b (the concept representation) so
+that it is in a way kept consistent with the whole set of
+information k (the examples) that he has received from
+the environment or other agents. we extend this notion
+of consistency (or soundness) to the whole mas and 
+discuss how to obtain that, at any moment, a same consistent
+concept representation is present in each agent. the 
+corresponding protocol is applied to supervised concept learning.
+the resulting method smile (standing for sound 
+multiagent incremental learning) is described and experimented
+here. surprisingly some difficult boolean formulas are 
+better learned, given the same learning set, by a multi agent
+system than by a single agent.

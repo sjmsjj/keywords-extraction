@@ -1,0 +1,18 @@
+decentralized markov decision processes (dec-mdps) are a 
+popular model of agent-coordination problems in domains with 
+uncertainty and time constraints but very difficult to solve. in this
+paper, we improve a state-of-the-art heuristic solution method for
+dec-mdps, called oc-dec-mdp, that has recently been shown
+to scale up to larger dec-mdps. our heuristic solution method,
+called value function propagation (vfp), combines two 
+orthogonal improvements of oc-dec-mdp. first, it speeds up 
+oc-decmdp by an order of magnitude by maintaining and manipulating
+a value function for each state (as a function of time) rather than a
+separate value for each pair of sate and time interval. furthermore,
+it achieves better solution qualities than oc-dec-mdp because,
+as our analytical results show, it does not overestimate the expected
+total reward like oc-dec- mdp. we test both improvements 
+independently in a crisis-management domain as well as for other
+types of domains. our experimental results demonstrate a 
+significant speedup of vfp over oc-dec-mdp as well as higher solution
+qualities in a variety of situations.

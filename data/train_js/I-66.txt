@@ -1,0 +1,19 @@
+distributed partially observable markov decision problems 
+(distributed pomdps) are a popular approach for modeling multi-agent
+systems acting in uncertain domains. given the significant 
+complexity of solving distributed pomdps, particularly as we scale
+up the numbers of agents, one popular approach has focused on
+approximate solutions. though this approach is efficient, the 
+algorithms within this approach do not provide any guarantees on 
+solution quality. a second less popular approach focuses on global
+optimality, but typical results are available only for two agents,
+and also at considerable computational cost. this paper overcomes
+the limitations of both these approaches by providing spider, a
+novel combination of three key features for policy generation in 
+distributed pomdps: (i) it exploits agent interaction structure given
+a network of agents (i.e. allowing easier scale-up to larger number
+of agents); (ii) it uses a combination of heuristics to speedup policy
+search; and (iii) it allows quality guaranteed approximations, 
+allowing a systematic tradeoff of solution quality for time. 
+experimental results show orders of magnitude improvement in performance
+when compared with previous global optimal algorithms.

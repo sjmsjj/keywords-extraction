@@ -1,0 +1,33 @@
+newly emerging game-based application systems such as second
+life1
+provide 3d virtual environments where multiple users 
+interact with each other in real-time. they are filled with autonomous,
+mutable virtual content which is continuously augmented by the
+users. to make the systems highly scalable and dynamically 
+extensible, they are usually built on a client-server based grid subspace
+division where the virtual worlds are partitioned into manageable
+sub-worlds. in each sub-world, the user continuously receives
+relevant geometry updates of moving objects from remotely 
+connected servers and renders them according to her viewpoint, rather
+than retrieving them from a local storage medium.
+in such systems, the determination of the set of objects that are
+visible from a user"s viewpoint is one of the primary factors that
+affect server throughput and scalability. specifically, performing
+real-time visibility tests in extremely dynamic virtual environments
+is a very challenging task as millions of objects and sub-millions of
+active users are moving and interacting. we recognize that the 
+described challenges are closely related to a spatial database problem,
+and hence we map the moving geometry objects in the virtual space
+to a set of multi-dimensional objects in a spatial database while
+modeling each avatar both as a spatial object and a moving query.
+unfortunately, existing spatial indexing methods are unsuitable for
+this kind of new environments.
+the main goal of this paper is to present an efficient spatial 
+index structure that minimizes unexpected object popping and 
+supports highly scalable real-time visibility determination. we then
+uncover many useful properties of this structure and compare the
+index structure with various spatial indexing methods in terms of
+query quality, system throughput, and resource utilization. we 
+expect our approach to lay the groundwork for next-generation 
+virtual frameworks that may merge into existing web-based services
+in the near future.

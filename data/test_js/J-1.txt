@@ -1,0 +1,21 @@
+when designing a mechanism there are several desirable
+properties to maintain such as incentive compatibility (ic),
+individual rationality (ir), and budget balance (bb). it is
+well known [15] that it is impossible for a mechanism to
+maximize social welfare whilst also being ir, ic, and bb.
+there have been several attempts to circumvent [15] by 
+trading welfare for bb, e.g., in domains such as double-sided
+auctions[13], distributed markets[3] and supply chain 
+problems[2, 4].
+in this paper we provide a procedure called a 
+generalized trade reduction (gtr) for single-value players, which
+given an ir and ic mechanism, outputs a mechanism which
+is ir, ic and bb with a loss of welfare. we bound the
+welfare achieved by our procedure for a wide range of 
+domains. in particular, our results improve on existing 
+solutions for problems such as double sided markets with 
+homogenous goods, distributed markets and several kinds of
+supply chains. furthermore, our solution provides 
+budget balanced mechanisms for several open problems such as
+combinatorial double-sided auctions and distributed 
+markets with strategic transportation edges.

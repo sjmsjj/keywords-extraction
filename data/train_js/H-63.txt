@@ -1,0 +1,20 @@
+data dissemination through wireless channels for broadcasting
+information to consumers is becoming quite common. many
+dissemination schemes have been proposed but most of them push
+data to wireless channels for general consumption. push based
+broadcast [1] is essentially asymmetric, i.e., the volume of data
+being higher from the server to the users than from the users back
+to the server. push based scheme requires some indexing which
+indicates when the data will be broadcast and its position in the
+broadcast. access latency and tuning time are the two main
+parameters which may be used to evaluate an indexing scheme.
+two of the important indexing schemes proposed earlier were tree
+based and the exponential indexing schemes. none of these
+schemes were able to address the requirements of location
+dependent data (ldd) which is highly desirable feature of data
+dissemination. in this paper, we discuss the broadcast of ldd in
+our project data in your space (days), and propose a scheme
+for indexing ldd. we argue that this scheme, when applied to
+ldd, significantly improves performance in terms of tuning time
+over the above mentioned schemes. we prove our argument with
+the help of simulation results.

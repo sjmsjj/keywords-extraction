@@ -1,0 +1,10 @@
+we study coalitional games where the value of cooperation
+among the agents are solely determined by the attributes
+the agents possess, with no assumption as to how these 
+attributes jointly determine this value. this framework 
+allows us to model diverse economic interactions by picking
+the right attributes. we study the computational 
+complexity of two coalitional solution concepts for these 
+gamesthe shapley value and the core. we show how the positive
+results obtained in this paper imply comparable results for
+other games studied in the literature.

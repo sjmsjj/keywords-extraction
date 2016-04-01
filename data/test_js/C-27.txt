@@ -1,0 +1,18 @@
+the problem of localization of wireless sensor nodes has long been
+regarded as very difficult to solve, when considering the realities
+of real world environments. in this paper, we formally describe,
+design, implement and evaluate a novel localization system, called
+spotlight. our system uses the spatio-temporal properties of well
+controlled events in the network (e.g., light), to obtain the
+locations of sensor nodes. we demonstrate that a high accuracy in
+localization can be achieved without the aid of expensive hardware
+on the sensor nodes, as required by other localization systems. we
+evaluate the performance of our system in deployments of mica2
+and xsm motes. through performance evaluations of a real
+system deployed outdoors, we obtain a 20cm localization error. a
+sensor network, with any number of nodes, deployed in a 2500m2
+area, can be localized in under 10 minutes, using a device that
+costs less than $1000. to the best of our knowledge, this is the first
+report of a sub-meter localization error, obtained in an outdoor
+environment, without equipping the wireless sensor nodes with
+specialized ranging hardware.

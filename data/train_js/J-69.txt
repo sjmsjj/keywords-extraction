@@ -1,0 +1,12 @@
+lack of cooperation (free riding) is one of the key problems that
+confronts today"s p2p systems. what makes this problem 
+particularly difficult is the unique set of challenges that p2p systems
+pose: large populations, high turnover, asymmetry of interest, 
+collusion, zero-cost identities, and traitors. to tackle these challenges we
+model the p2p system using the generalized prisoner"s dilemma
+(gpd), and propose the reciprocative decision function as the 
+basis of a family of incentives techniques. these techniques are fully
+distributed and include: discriminating server selection, 
+maxflowbased subjective reputation, and adaptive stranger policies. through
+simulation, we show that these techniques can drive a system of
+strategic users to nearly optimal levels of cooperation.

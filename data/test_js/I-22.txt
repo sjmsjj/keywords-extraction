@@ -1,0 +1,16 @@
+human team members often develop shared expectations to
+predict each other"s needs and coordinate their behaviors.
+in this paper the concept shared belief map is proposed
+as a basis for developing realistic shared expectations among
+a team of human-agent-pairs (haps). the establishment
+of shared belief maps relies on inter-agent information 
+sharing, the effectiveness of which highly depends on agents" 
+processing loads and the instantaneous cognitive loads of their
+human partners. we investigate hmm-based cognitive load
+models to facilitate team members to share the right 
+information with the right party at the right time. the shared
+belief map concept and the cognitive/processing load models
+have been implemented in a cognitive agent 
+architecturesmmall. a series of experiments were conducted to evaluate
+the concept, the models, and their impacts on the evolving
+of shared mental models of hap teams.

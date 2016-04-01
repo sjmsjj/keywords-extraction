@@ -1,0 +1,10 @@
+collaborative document processing has been addressed by many
+approaches so far, most of which focus on document versioning
+and collaborative editing. we address this issue from a different
+angle and describe the concept and architecture of a pervasive
+document editing and managing system. it exploits database
+techniques and real-time updating for sophisticated collaboration
+scenarios on multiple devices. each user is always served with 
+upto-date documents and can organize his work based on document
+meta data. for this, we present our conceptual architecture for
+such a system and discuss it with an example.

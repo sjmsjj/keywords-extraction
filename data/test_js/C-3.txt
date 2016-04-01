@@ -1,0 +1,16 @@
+grids are inherently heterogeneous and dynamic. one important
+problem in grid computing is resource selection, that is, finding
+an appropriate resource set for the application. another problem
+is adaptation to the changing characteristics of the grid 
+environment. existing solutions to these two problems require that a 
+performance model for an application is known. however, 
+constructing such models is a complex task. in this paper, we investigate
+an approach that does not require performance models. we start an
+application on any set of resources. during the application run, we
+periodically collect the statistics about the application run and 
+deduce application requirements from these statistics. then, we adjust
+the resource set to better fit the application needs. this approach 
+allows us to avoid performance bottlenecks, such as overloaded wan
+links or very slow processors, and therefore can yield significant
+performance improvements. we evaluate our approach in a number
+of scenarios typical for the grid.

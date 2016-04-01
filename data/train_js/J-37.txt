@@ -1,0 +1,25 @@
+finding an equilibrium of an extensive form game of 
+imperfect information is a fundamental problem in computational
+game theory, but current techniques do not scale to large
+games. to address this, we introduce the ordered game 
+isomorphism and the related ordered game isomorphic 
+abstraction transformation. for a multi-player sequential game of
+imperfect information with observable actions and an 
+ordered signal space, we prove that any nash equilibrium in
+an abstracted smaller game, obtained by one or more 
+applications of the transformation, can be easily converted into
+a nash equilibrium in the original game. we present an 
+algorithm, gameshrink, for abstracting the game using our
+isomorphism exhaustively. its complexity is ˜o(n2
+), where n
+is the number of nodes in a structure we call the signal tree.
+it is no larger than the game tree, and on nontrivial games
+it is drastically smaller, so gameshrink has time and space
+complexity sublinear in the size of the game tree. using
+gameshrink, we find an equilibrium to a poker game with
+3.1 billion nodes-over four orders of magnitude more than
+in the largest poker game solved previously. we discuss
+several electronic commerce applications for gameshrink.
+to address even larger games, we introduce approximation
+methods that do not preserve equilibrium, but nevertheless
+yield (ex post) provably close-to-optimal strategies.

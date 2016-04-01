@@ -1,0 +1,16 @@
+many organizations are required to author documents for various
+purposes, and such documents may need to be accessible by all
+member of the organization. this access may be needed for
+editing or simply viewing a document. in some cases these
+documents are shared between authors, via email, to be edited.
+this can easily cause incorrect version to be sent or conflicts
+created between multiple users trying to make amendments to a
+document. there may even be multiple different documents in the
+process of being edited. the user may be required to search for a
+particular document, which some search tools such as google
+desktop may be a solution for local documents but will not find a
+document on another user"s machine. another problem arises
+when a document is made available on a user"s machine and that
+user is offline, in which case the document is no longer
+accessible. in this paper we present apocrita, a revolutionary
+distributed p2p file sharing system for intranets.

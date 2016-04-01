@@ -1,0 +1,22 @@
+efficient discovery of grid services is essential for the success of
+grid computing. the standardization of grids based on web
+services has resulted in the need for scalable web service
+discovery mechanisms to be deployed in grids even though uddi
+has been the de facto industry standard for web-services
+discovery, imposed requirements of tight-replication among
+registries and lack of autonomous control has severely hindered
+its widespread deployment and usage. with the advent of grid
+computing the scalability issue of uddi will become a roadblock
+that will prevent its deployment in grids. in this paper we present
+our distributed web-service discovery architecture, called dude
+(distributed uddi deployment engine). dude leverages dht
+(distributed hash tables) as a rendezvous mechanism between
+multiple uddi registries. dude enables consumers to query
+multiple registries, still at the same time allowing organizations to
+have autonomous control over their registries.. based on
+preliminary prototype on planetlab, we believe that dude
+architecture can support effective distribution of uddi registries
+thereby making uddi more robust and also addressing its scaling
+issues. furthermore, the dude architecture for scalable
+distribution can be applied beyond uddi to any grid service
+discovery mechanism.

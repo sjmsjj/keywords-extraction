@@ -1,0 +1,16 @@
+logics of knowledge and belief are often too static and 
+inflexible to be used on real-world problems. in particular, they
+usually offer no concept for expressing that some course of
+events is more likely to happen than another. we address
+this problem and extend ctlk (computation tree logic
+with knowledge) with a notion of plausibility, which allows
+for practical and counterfactual reasoning. the new logic
+ctlkp (ctlk with plausibility) includes also a 
+particular notion of belief. a plausibility update operator is added
+to this logic in order to change plausibility assumptions 
+dynamically. furthermore, we examine some important 
+properties of these concepts. in particular, we show that, for a
+natural class of models, belief is a kd45 modality. we also
+show that model checking ctlkp is ptime-complete
+and can be done in time linear with respect to the size of
+models and formulae.

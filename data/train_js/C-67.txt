@@ -1,0 +1,28 @@
+the ringling school of art and design is a fully accredited 
+fouryear college of visual arts and design. with a student to computer
+ratio of better than 2-to-1, the ringling school has achieved
+national recognition for its large-scale integration of technology
+into collegiate visual art and design education. we have found
+that mac os x is the best operating system to train future artists
+and designers. moreover, we can now buy macs to run high-end
+graphics, nonlinear video editing, animation, multimedia, web
+production, and digital video applications rather than expensive
+unix workstations. as visual artists cross from paint on canvas
+to creating in the digital realm, the demand for a 
+highperformance computing environment grows. in our public
+computer laboratories, students use the computers most often
+during the workday; at night and on weekends the computers see
+only light use. in order to harness the lost processing time for
+tasks such as video rendering, we are testing xgrid, a suite of mac
+os x applications recently developed by apple for parallel and
+distributed high-performance computing.
+as with any new technology deployment, it managers need to
+consider a number of factors as they assess, plan, and implement
+xgrid. therefore, we would like to share valuable information we
+learned from our implementation of an xgrid environment with
+our colleagues. in our report, we will address issues such as
+assessing the needs for grid computing, potential applications,
+management tools, security, authentication, integration into
+existing infrastructure, application support, user training, and user
+support. furthermore, we will discuss the issues that arose and the
+lessons learned during and after the implementation process.

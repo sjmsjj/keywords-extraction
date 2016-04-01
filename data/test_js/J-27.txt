@@ -1,0 +1,21 @@
+a sequence of prices and demands are rationalizable if there
+exists a concave, continuous and monotone utility function
+such that the demands are the maximizers of the utility
+function over the budget set corresponding to the price.
+afriat [1] presented necessary and sufficient conditions for
+a finite sequence to be rationalizable. varian [20] and later
+blundell et al. [3, 4] continued this line of work studying
+nonparametric methods to forecasts demand. their results
+essentially characterize learnability of degenerate classes of
+demand functions and therefore fall short of giving a 
+general degree of confidence in the forecast. the present paper
+complements this line of research by introducing a statistical
+model and a measure of complexity through which we are
+able to study the learnability of classes of demand functions
+and derive a degree of confidence in the forecasts.
+our results show that the class of all demand functions
+has unbounded complexity and therefore is not learnable,
+but that there exist interesting and potentially useful classes
+that are learnable from finite samples. we also present a
+learning algorithm that is an adaptation of a new proof of
+afriat"s theorem due to teo and vohra [17].

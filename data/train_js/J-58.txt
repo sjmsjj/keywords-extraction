@@ -1,0 +1,22 @@
+the family of vickrey-clarke-groves (vcg) mechanisms is 
+arguably the most celebrated achievement in truthful mechanism 
+design. however, vcg mechanisms have their limitations. they only
+apply to optimization problems with a utilitarian (or affine) 
+objective function, and their output should optimize the objective 
+function. for many optimization problems, finding the optimal output
+is computationally intractable. if we apply vcg mechanisms to
+polynomial-time algorithms that approximate the optimal solution,
+the resulting mechanisms may no longer be truthful.
+in light of these limitations, it is useful to study whether we can
+design a truthful non-vcg payment scheme that is computationally
+tractable for a given allocation rule o. in this paper, we focus our
+attention on binary demand games in which the agents" only 
+available actions are to take part in the a game or not to. for these 
+problems, we prove that a truthful mechanism m = (o, p) exists with
+a proper payment method p iff the allocation rule o satisfies a 
+certain monotonicity property. we provide a general framework to 
+design such p. we further propose several general composition-based
+techniques to compute p efficiently for various types of output.
+in particular, we show how p can be computed through or/and
+combinations, round-based combinations, and some more complex
+combinations of the outputs from subgames.

@@ -1,0 +1,17 @@
+in this paper we present an advanced bidding agent that 
+participates in first-price sealed bid auctions to allocate advertising space
+on bluscreen - an experimental public advertisement system that
+detects users through the presence of their bluetooth enabled 
+devices. our bidding agent is able to build probabilistic models of
+both the behaviour of users who view the adverts, and the auctions
+that it participates within. it then uses these models to maximise the
+exposure that its adverts receive. we evaluate the effectiveness of
+this bidding agent through simulation against a range of alternative
+selection mechanisms including a simple bidding strategy, random
+allocation, and a centralised optimal allocation with perfect 
+foresight. our bidding agent significantly outperforms both the simple
+bidding strategy and the random allocation, and in a mixed 
+population of agents it is able to expose its adverts to 25% more users than
+the simple bidding strategy. moreover, its performance is within
+7.5% of that of the centralised optimal allocation despite the highly
+uncertain environment in which it must operate.

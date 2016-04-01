@@ -1,0 +1,17 @@
+internet search companies sell advertisement slots based on
+users" search queries via an auction. while there has been
+previous work on the auction process and its game-theoretic
+aspects, most of it focuses on the internet company. in this
+work, we focus on the advertisers, who must solve a complex
+optimization problem to decide how to place bids on 
+keywords to maximize their return (the number of user clicks on
+their ads) for a given budget. we model the entire process
+and study this budget optimization problem. while most
+variants are np-hard, we show, perhaps surprisingly, that
+simply randomizing between two uniform strategies that bid
+equally on all the keywords works well. more precisely, this
+strategy gets at least a 1 − 1/e fraction of the maximum
+clicks possible. as our preliminary experiments show, such
+uniform strategies are likely to be practical. we also present
+inapproximability results, and optimal algorithms for 
+variants of the budget optimization problem.

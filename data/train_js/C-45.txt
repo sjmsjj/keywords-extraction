@@ -1,0 +1,21 @@
+the problem of localization in wireless sensor networks
+where nodes do not use ranging hardware, remains a 
+challenging problem, when considering the required location 
+accuracy, energy expenditure and the duration of the 
+localization phase. in this paper we propose a framework, called
+stardust, for wireless sensor network localization based on
+passive optical components. in the stardust framework,
+sensor nodes are equipped with optical retro-reflectors. an
+aerial device projects light towards the deployed sensor 
+network, and records an image of the reflected light. an image
+processing algorithm is developed for obtaining the locations
+of sensor nodes. for matching a node id to a location we
+propose a constraint-based label relaxation algorithm. we
+propose and develop localization techniques based on four
+types of constraints: node color, neighbor information, 
+deployment time for a node and deployment location for a
+node. we evaluate the performance of a localization system
+based on our framework by localizing a network of 26 
+sensor nodes deployed in a 120 × 60 ft2 area. the localization
+accuracy ranges from 2 ft to 5 ft while the localization time
+ranges from 10 milliseconds to 2 minutes.

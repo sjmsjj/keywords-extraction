@@ -1,0 +1,18 @@
+in multiagent systems, strategic settings are often analyzed
+under the assumption that the players choose their strategies
+simultaneously. however, this model is not always realistic.
+in many settings, one player is able to commit to a 
+strategy before the other player makes a decision. such models
+are synonymously referred to as leadership, commitment, or
+stackelberg models, and optimal play in such models is often
+significantly different from optimal play in the model where
+strategies are selected simultaneously.
+the recent surge in interest in computing game-theoretic
+solutions has so far ignored leadership models (with the 
+exception of the interest in mechanism design, where the 
+designer is implicitly in a leadership position). in this 
+paper, we study how to compute optimal strategies to commit
+to under both commitment to pure strategies and 
+commitment to mixed strategies, in both normal-form and bayesian
+games. we give both positive results (efficient algorithms)
+and negative results (np-hardness results).

@@ -1,0 +1,25 @@
+in set-system auctions, there are several overlapping teams of agents,
+and a task that can be completed by any of these teams. the 
+auctioneer"s goal is to hire a team and pay as little as possible. 
+examples of this setting include shortest-path auctions and vertex-cover
+auctions. recently, karlin, kempe and tamir introduced a new 
+definition of frugality ratio for this problem. informally, the frugality
+ratio is the ratio of the total payment of a mechanism to a desired
+payment bound. the ratio captures the extent to which the 
+mechanism overpays, relative to perceived fair cost in a truthful auction.
+in this paper, we propose a new truthful polynomial-time auction
+for the vertex cover problem and bound its frugality ratio. we show
+that the solution quality is with a constant factor of optimal and
+the frugality ratio is within a constant factor of the best possible
+worst-case bound; this is the first auction for this problem to have
+these properties. moreover, we show how to transform any 
+truthful auction into a frugal one while preserving the approximation
+ratio. also, we consider two natural modifications of the definition
+of karlin et al., and we analyse the properties of the resulting 
+payment bounds, such as monotonicity, computational hardness, and
+robustness with respect to the draw-resolution rule. we study the
+relationships between the different payment bounds, both for 
+general set systems and for specific set-system auctions, such as path
+auctions and vertex-cover auctions. we use these new definitions
+in the proof of our main result for vertex-cover auctions via a 
+bootstrapping technique, which may be of independent interest.

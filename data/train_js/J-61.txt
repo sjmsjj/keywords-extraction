@@ -1,0 +1,15 @@
+we present the first design for an iterative combinatorial 
+exchange (ice). the exchange incorporates a tree-based 
+bidding language that is concise and expressive for ces. 
+bidders specify lower and upper bounds on their value for 
+different trades. these bounds allow price discovery and useful
+preference elicitation in early rounds, and allow termination
+with an efficient trade despite partial information on bidder
+valuations. all computation in the exchange is carefully 
+optimized to exploit the structure of the bid-trees and to avoid
+enumerating trades. a proxied interpretation of a 
+revealedpreference activity rule ensures progress across rounds. a
+vcg-based payment scheme that has been shown to 
+mitigate opportunities for bargaining and strategic behavior is
+used to determine final payments. the exchange is fully
+implemented and in a validation phase.

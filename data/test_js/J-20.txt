@@ -1,0 +1,34 @@
+in barter-exchange markets, agents seek to swap their items
+with one another, in order to improve their own utilities.
+these swaps consist of cycles of agents, with each agent
+receiving the item of the next agent in the cycle. we 
+focus mainly on the upcoming national kidney-exchange 
+market, where patients with kidney disease can obtain 
+compatible donors by swapping their own willing but incompatible
+donors. with over 70,000 patients already waiting for a
+cadaver kidney in the us, this market is seen as the only
+ethical way to significantly reduce the 4,000 deaths per year
+attributed to kidney disease.
+the clearing problem involves finding a social welfare 
+maximizing exchange when the maximum length of a cycle is
+fixed. long cycles are forbidden, since, for incentive reasons,
+all transplants in a cycle must be performed simultaneously.
+also, in barter-exchanges generally, more agents are affected
+if one drops out of a longer cycle. we prove that the clearing
+problem with this cycle-length constraint is np-hard. 
+solving it exactly is one of the main challenges in establishing a
+national kidney exchange.
+we present the first algorithm capable of clearing these
+markets on a nationwide scale. the key is incremental 
+problem formulation. we adapt two paradigms for the task:
+constraint generation and column generation. for each, we
+develop techniques that dramatically improve both runtime
+and memory usage. we conclude that column generation
+scales drastically better than constraint generation. our 
+algorithm also supports several generalizations, as demanded
+by real-world kidney exchanges.
+our algorithm replaced cplex as the clearing algorithm
+of the alliance for paired donation, one of the leading 
+kidney exchanges. the match runs are conducted every two
+weeks and transplants based on our optimizations have 
+already been conducted.

@@ -1,0 +1,22 @@
+in adversarial multiagent domains, security, commonly defined as
+the ability to deal with intentional threats from other agents, is a
+critical issue. this paper focuses on domains where these threats
+come from unknown adversaries. these domains can be modeled
+as bayesian games; much work has been done on finding equilibria
+for such games. however, it is often the case in multiagent security
+domains that one agent can commit to a mixed strategy which its
+adversaries observe before choosing their own strategies. in this
+case, the agent can maximize reward by finding an optimal 
+strategy, without requiring equilibrium. previous work has shown this
+problem of optimal strategy selection to be np-hard. therefore,
+we present a heuristic called asap, with three key advantages to
+address the problem. first, asap searches for the highest-reward
+strategy, rather than a bayes-nash equilibrium, allowing it to find
+feasible strategies that exploit the natural first-mover advantage of
+the game. second, it provides strategies which are simple to 
+understand, represent, and implement. third, it operates directly on the
+compact, bayesian game representation, without requiring 
+conversion to normal form. we provide an efficient mixed integer linear
+program (milp) implementation for asap, along with 
+experimental results illustrating significant speedups and higher rewards over
+other approaches.

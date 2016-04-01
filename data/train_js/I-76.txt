@@ -1,0 +1,12 @@
+this paper studies a logical framework for automated 
+negotiation between two agents. we suppose an agent who has
+a knowledge base represented by a logic program. then,
+we introduce methods of constructing counter-proposals in
+response to proposals made by an agent. to this end, we
+combine the techniques of extended abduction in artificial
+intelligence and relaxation in cooperative query answering
+for databases. these techniques are respectively used for
+producing conditional proposals and neighborhood proposals
+in the process of negotiation. we provide a negotiation 
+protocol based on the exchange of these proposals and develop
+procedures for computing new proposals.

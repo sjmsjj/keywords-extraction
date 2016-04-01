@@ -1,0 +1,23 @@
+recommender systems aggregate individual user ratings into
+predictions of products or services that might interest 
+visitors. the quality of this aggregation process crucially 
+affects the user experience and hence the effectiveness of 
+recommenders in e-commerce. we present a novel study that
+disaggregates global recommender performance metrics into
+contributions made by each individual rating, allowing us
+to characterize the many roles played by ratings in 
+nearestneighbor collaborative filtering. in particular, we formulate
+three roles-scouts, promoters, and connectors-that 
+capture how users receive recommendations, how items get 
+recommended, and how ratings of these two types are 
+themselves connected (resp.). these roles find direct uses in 
+improving recommendations for users, in better targeting of
+items and, most importantly, in helping monitor the health
+of the system as a whole. for instance, they can be used
+to track the evolution of neighborhoods, to identify rating
+subspaces that do not contribute (or contribute negatively)
+to system performance, to enumerate users who are in 
+danger of leaving, and to assess the susceptibility of the system
+to attacks such as shilling. we argue that the three rating
+roles presented here provide broad primitives to manage a
+recommender system and its community.

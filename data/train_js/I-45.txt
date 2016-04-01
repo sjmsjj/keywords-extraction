@@ -1,0 +1,16 @@
+although agent interaction plays a vital role in mas, and 
+messagecentric approaches to agent interaction have their drawbacks, present
+agent-oriented programming languages do not provide support for
+implementing agent interaction that is flexible and robust. instead,
+messages are provided as a primitive building block. in this 
+paper we consider one approach for modelling agent interactions: the
+commitment machines framework. this framework supports 
+modelling interactions at a higher level (using social commitments), 
+resulting in more flexible interactions. we investigate how 
+commitmentbased interactions can be implemented in conventional agent-oriented
+programming languages. the contributions of this paper are: a
+mapping from a commitment machine to a collection of bdi-style
+plans; extensions to the semantics of bdi programming languages;
+and an examination of two issues that arise when distributing 
+commitment machines (turn management and race conditions) and 
+solutions to these problems.

@@ -1,0 +1,23 @@
+information markets, which are designed specifically to 
+aggregate traders" information, are becoming increasingly 
+popular as a means for predicting future events. recent 
+research in information markets has resulted in two new 
+designs, market scoring rules and dynamic parimutuel 
+markets. we develop an analytic method to guide the design
+and strategic analysis of information markets. our central
+contribution is a new abstract betting game, the projection
+game, that serves as a useful model for information 
+markets. we demonstrate that this game can serve as a strategic
+model of dynamic parimutuel markets, and also captures the
+essence of the strategies in market scoring rules. the 
+projection game is tractable to analyze, and has an attractive
+geometric visualization that makes the strategic moves and
+interactions more transparent. we use it to prove several
+strategic properties about the dynamic parimutuel market.
+we also prove that a special form of the projection game is
+strategically equivalent to the spherical scoring rule, and it
+is strategically similar to other scoring rules. finally, we 
+illustrate two applications of the model to analysis of complex
+strategic scenarios: we analyze the precision of a market in
+which traders have inertia, and a market in which a trader
+can profit by manipulating another trader"s beliefs.

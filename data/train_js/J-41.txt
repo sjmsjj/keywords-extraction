@@ -1,0 +1,26 @@
+billions of dollars are spent each year on sponsored search,
+a form of advertising where merchants pay for placement
+alongside web search results. slots for ad listings are 
+allocated via an auction-style mechanism where the higher a
+merchant bids, the more likely his ad is to appear above
+other ads on the page. in this paper we analyze the 
+incentive, efficiency, and revenue properties of two slot 
+auction designs: rank by bid (rbb) and rank by revenue
+(rbr), which correspond to stylized versions of the 
+mechanisms currently used by yahoo! and google, respectively.
+we also consider first- and second-price payment rules 
+together with each of these allocation rules, as both have been
+used historically. we consider both the short-run 
+incomplete information setting and the long-run complete 
+information setting. with incomplete information, neither rbb
+nor rbr are truthful with either first or second pricing. we
+find that the informational requirements of rbb are much
+weaker than those of rbr, but that rbr is efficient whereas
+rbb is not. we also show that no revenue ranking of rbb
+and rbr is possible given an arbitrary distribution over
+bidder values and relevance. with complete information,
+we find that no equilibrium exists with first pricing using
+either rbb or rbr. we show that there typically exists a
+multitude of equilibria with second pricing, and we bound
+the divergence of (economic) value in such equilibria from
+the value obtained assuming all merchants bid truthfully.

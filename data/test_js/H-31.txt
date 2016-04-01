@@ -1,0 +1,19 @@
+many variants of language models have been proposed for
+information retrieval. most existing models are based on
+multinomial distribution and would score documents based
+on query likelihood computed based on a query generation
+probabilistic model. in this paper, we propose and study a
+new family of query generation models based on poisson 
+distribution. we show that while in their simplest forms, the
+new family of models and the existing multinomial models
+are equivalent, they behave differently for many smoothing
+methods. we show that the poisson model has several 
+advantages over the multinomial model, including naturally 
+accommodating per-term smoothing and allowing for more 
+accurate background modeling. we present several variants of
+the new model corresponding to different smoothing 
+methods, and evaluate them on four representative trec test
+collections. the results show that while their basic 
+models perform comparably, the poisson model can outperform
+multinomial model with per-term smoothing. the 
+performance can be further improved with two-stage smoothing.

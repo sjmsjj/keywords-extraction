@@ -1,0 +1,27 @@
+we consider a permutation betting scenario, where people
+wager on the final ordering of n candidates: for example,
+the outcome of a horse race. we examine the auctioneer
+problem of risklessly matching up wagers or, equivalently,
+finding arbitrage opportunities among the proposed wagers.
+requiring bidders to explicitly list the orderings that they"d
+like to bet on is both unnatural and intractable, because the
+number of orderings is n! and the number of subsets of 
+orderings is 2n!
+. we propose two expressive betting languages
+that seem natural for bidders, and examine the 
+computational complexity of the auctioneer problem in each case.
+subset betting allows traders to bet either that a candidate
+will end up ranked among some subset of positions in the
+final ordering, for example, horse a will finish in positions
+4, 9, or 13-21, or that a position will be taken by some 
+subset of candidates, for example horse a, b, or d will finish
+in position 2. for subset betting, we show that the 
+auctioneer problem can be solved in polynomial time if orders
+are divisible. pair betting allows traders to bet on whether
+one candidate will end up ranked higher than another 
+candidate, for example horse a will beat horse b. we prove
+that the auctioneer problem becomes np-hard for pair 
+betting. we identify a sufficient condition for the existence of a
+pair betting match that can be verified in polynomial time.
+we also show that a natural greedy algorithm gives a poor
+approximation for indivisible orders.

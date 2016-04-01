@@ -1,0 +1,18 @@
+archival storage of sensor data is necessary for applications that query,
+mine, and analyze such data for interesting features and trends. we argue
+that existing storage systems are designed primarily for flat hierarchies of
+homogeneous sensor nodes and do not fully exploit the multi-tier nature
+of emerging sensor networks, where an application can comprise tens of
+tethered proxies, each managing tens to hundreds of untethered sensors.
+we present tsar, a fundamentally different storage architecture that 
+envisions separation of data from metadata by employing local archiving at
+the sensors and distributed indexing at the proxies. at the proxy tier, tsar
+employs a novel multi-resolution ordered distributed index structure, the
+interval skip graph, for efficiently supporting spatio-temporal and value
+queries. at the sensor tier, tsar supports energy-aware adaptive 
+summarization that can trade off the cost of transmitting metadata to the proxies
+against the overhead of false hits resulting from querying a coarse-grain 
+index. we implement tsar in a two-tier sensor testbed comprising 
+stargatebased proxies and mote-based sensors. our experiments demonstrate the
+benefits and feasibility of using our energy-efficient storage architecture in
+multi-tier sensor networks.

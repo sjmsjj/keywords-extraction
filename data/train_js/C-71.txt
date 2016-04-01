@@ -1,0 +1,15 @@
+we propose ι, a novel index for evaluation of point-distribution.
+ι is the minimum distance between each pair of points 
+normalized by the average distance between each pair of points. we find
+that a set of points that achieve a maximum value of ι result in
+a honeycomb structure. we propose that ι can serve as a good
+index to evaluate the distribution of the points, which can be 
+employed in coverage-related problems in wireless sensor networks
+(wsns). to validate this idea, we formulate a general 
+sensorgrouping problem for wsns and provide a general sensing model.
+we show that locally maximizing ι at sensor nodes is a good 
+approach to solve this problem with an algorithm called 
+maximizingι node-deduction (mind). simulation results verify that mind
+outperforms a greedy algorithm that exploits sensor-redundancy we
+design. this demonstrates a good application of employing ι in
+coverage-related problems for wsns.

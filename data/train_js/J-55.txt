@@ -1,0 +1,16 @@
+we investigate the class of single-round, sealed-bid auctions for a
+set of identical items to bidders who each desire one unit. we adopt
+the worst-case competitive framework defined by [9, 5] that 
+compares the profit of an auction to that of an optimal single-price sale
+of least two items. in this paper, we first derive an optimal auction
+for three items, answering an open question from [8]. second, we
+show that the form of this auction is independent of the 
+competitive framework used. third, we propose a schema for converting
+a given limited-supply auction into an unlimited supply auction.
+applying this technique to our optimal auction for three items, we
+achieve an auction with a competitive ratio of 3.25, which improves
+upon the previously best-known competitive ratio of 3.39 from [7].
+finally, we generalize a result from [8] and extend our 
+understanding of the nature of the optimal competitive auction by showing that
+the optimal competitive auction occasionally offers prices that are
+higher than all bid values.

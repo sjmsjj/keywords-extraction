@@ -1,0 +1,10 @@
+ontologies building from text is still a time-consuming task which
+justifies the growth of ontology learning. our system named 
+dynamo is designed along this domain but following an original 
+approach based on an adaptive multi-agent architecture. in this paper
+we present a distributed hierarchical clustering algorithm, core of
+our approach. it is evaluated and compared to a more conventional
+centralized algorithm. we also present how it has been improved
+using a multi-criteria approach. with those results in mind, we
+discuss the limits of our system and add as perspectives the 
+modifications required to reach a complete ontology building solution.

@@ -1,0 +1,24 @@
+in many sensor networks, data or events are named by 
+attributes. many of these attributes have scalar values, so one
+natural way to query events of interest is to use a 
+multidimensional range query. an example is: list all events
+whose temperature lies between 50◦
+and 60◦
+, and whose
+light levels lie between 10 and 15. such queries are useful
+for correlating events occurring within the network.
+in this paper, we describe the design of a distributed 
+index that scalably supports multi-dimensional range queries.
+our distributed index for multi-dimensional data (or dim)
+uses a novel geographic embedding of a classical index data
+structure, and is built upon the gpsr geographic routing
+algorithm. our analysis reveals that, under reasonable 
+assumptions about query distributions, dims scale quite well
+with network size (both insertion and query costs scale as
+o(
+√
+n)). in detailed simulations, we show that in practice,
+the insertion and query costs of other alternatives are 
+sometimes an order of magnitude more than the costs of dims,
+even for moderately sized network. finally, experiments on
+a small scale testbed validate the feasibility of dims.

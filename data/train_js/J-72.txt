@@ -1,0 +1,13 @@
+we consider the parallels between the preference elicitation
+problem in combinatorial auctions and the problem of 
+learning an unknown function from learning theory. we show
+that learning algorithms can be used as a basis for 
+preference elicitation algorithms. the resulting elicitation 
+algorithms perform a polynomial number of queries. we also
+give conditions under which the resulting algorithms have
+polynomial communication. our conversion procedure 
+allows us to generate combinatorial auction protocols from
+learning algorithms for polynomials, monotone dnf, and
+linear-threshold functions. in particular, we obtain an 
+algorithm that elicits xor bids with polynomial 
+communication.

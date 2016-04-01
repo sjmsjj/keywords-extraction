@@ -1,0 +1,7 @@
+we propose a new class of representations that can be used for 
+modeling (and model checking) temporal, strategic and epistemic 
+properties of agents and their teams. our representations borrow the
+main ideas from interpreted systems of halpern, fagin et al.; 
+however, they are also modular and compact in the way concurrent 
+programs are. we also mention preliminary results on model checking
+alternating-time temporal logic for this natural class of models.

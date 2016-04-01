@@ -1,0 +1,17 @@
+this paper addresses the problem of fair equilibrium selection in
+graphical games. our approach is based on the data structure called
+the best response policy, which was proposed by kearns et al. [13]
+as a way to represent all nash equilibria of a graphical game. in [9],
+it was shown that the best response policy has polynomial size as
+long as the underlying graph is a path. in this paper, we show
+that if the underlying graph is a bounded-degree tree and the best
+response policy has polynomial size then there is an efficient 
+algorithm which constructs a nash equilibrium that guarantees certain
+payoffs to all participants. another attractive solution concept is a
+nash equilibrium that maximizes the social welfare. we show that,
+while exactly computing the latter is infeasible (we prove that 
+solving this problem may involve algebraic numbers of an arbitrarily
+high degree), there exists an fptas for finding such an equilibrium
+as long as the best response policy has polynomial size. these two
+algorithms can be combined to produce nash equilibria that satisfy
+various fairness criteria.

@@ -1,0 +1,20 @@
+the social stance advocated by institutional frameworks and
+most multi-agent system methodologies has resulted in a
+wide spectrum of organizational and communicative 
+abstractions which have found currency in several programming
+frameworks and software platforms. still, these tools and
+frameworks are designed to support a limited range of 
+interaction capabilities that constrain developers to a fixed set
+of particular, pre-defined abstractions. the main hypothesis
+motivating this paper is that the variety of multi-agent 
+interaction mechanisms - both, organizational and 
+communicative, share a common semantic core. in the realm of software
+architectures, the paper proposes a connector-based model
+of multi-agent interactions which attempts to identify the
+essential structure underlying multi-agent interactions. 
+furthermore, the paper also provides this model with a formal
+execution semantics which describes the dynamics of social
+interactions. the proposed model is intended as the 
+abstract machine of an organizational programming language
+which allows programmers to accommodate an open set of
+interaction mechanisms.

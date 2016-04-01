@@ -1,0 +1,20 @@
+enterprises in the public and private sectors have been 
+making their large spatial data archives available over the 
+internet. however, interactive work with such large volumes
+of online spatial data is a challenging task. we propose
+two efficient approaches to remote access to large spatial
+data. first, we introduce a client-server architecture where
+the work is distributed between the server and the 
+individual clients for spatial query evaluation, data visualization,
+and data management. we enable the minimization of the
+requirements for system resources on the client side while
+maximizing system responsiveness as well as the number of
+connections one server can handle concurrently. second, for
+prolonged periods of access to large online data, we 
+introduce appoint (an approach for peer-to-peer oﬄoading
+the internet). this is a centralized peer-to-peer approach
+that helps internet users transfer large volumes of online
+data efficiently. in appoint, active clients of the 
+clientserver architecture act on the server"s behalf and 
+communicate with each other to decrease network latency, improve
+service bandwidth, and resolve server congestions.

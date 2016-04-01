@@ -1,0 +1,24 @@
+wireless sensor networks have been proposed for use in
+many location-dependent applications. most of these need to
+identify the locations of wireless sensor nodes, a challenging
+task because of the severe constraints on cost, energy and 
+effective range of sensor devices. to overcome limitations in 
+existing solutions, we present a multi-sequence positioning (msp)
+method for large-scale stationary sensor node localization in
+outdoor environments. the novel idea behind msp is to 
+reconstruct and estimate two-dimensional location information for
+each sensor node by processing multiple one-dimensional node
+sequences, easily obtained through loosely guided event 
+distribution. starting from a basic msp design, we propose four
+optimizations, which work together to increase the localization
+accuracy. we address several interesting issues, such as 
+incomplete (partial) node sequences and sequence flip, found in the
+mirage test-bed we built. we have evaluated the msp system
+through theoretical analysis, extensive simulation as well as
+two physical systems (an indoor version with 46 micaz motes
+and an outdoor version with 20 micaz motes). this 
+evaluation demonstrates that msp can achieve an accuracy within
+one foot, requiring neither additional costly hardware on 
+sensor nodes nor precise event distribution. it also provides a nice
+tradeoff between physical cost (anchors) and soft cost (events),
+while maintaining localization accuracy.

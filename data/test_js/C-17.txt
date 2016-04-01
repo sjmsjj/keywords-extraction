@@ -1,0 +1,1000 @@
+real-time services have been supported by and large on 
+circuitswitched networks. recent trends favour services ported on
+packet-switched networks. for audio conferencing, we need to
+consider many issues - scalability, quality of the conference
+application, floor control and load on the clients/servers - to name
+a few. in this paper, we describe an audio service framework
+designed to provide a virtual conferencing environment (vce).
+the system is designed to accommodate a large number of end
+users speaking at the same time and spread across the internet.
+the framework is based on conference servers [14], which
+facilitate the audio handling, while we exploit the sip capabilities
+for signaling purposes. client selection is based on a recent
+quantifier called "loudness number" that helps mimic a physical
+face-to-face conference. we deal with deployment issues of the
+proposed solution both in terms of scalability and interactivity,
+while explaining the techniques we use to reduce the traffic. we
+have implemented a conference server (cs) application on a
+campus-wide network at our institute.
+categories and subjects descriptors
+c.2.4 [computer-communication networks]: distributed
+systems - client / server, distributed applications.
+general terms
+algorithms, performance, design, theory.
+1. introduction
+today's internet uses the ip protocol suite that was primarily
+designed for the transport of data and provides best effort data
+delivery. delay-constraints and characteristics separate traditional
+data on the one hand from voice & video applications on the
+other. hence, as progressively time-sensitive voice and video
+applications are deployed on the internet, the inadequacy of the
+internet is exposed. further, we seek to port telephone services
+on the internet. among them, virtual conference (teleconference)
+facility is at the cutting edge. audio and video conferencing on
+internet are popular [25] for the several advantages they inhere
+[3,6]. clearly, the bandwidth required for a teleconference over
+the internet increases rapidly with the number of participants;
+reducing bandwidth without compromising audio quality is a
+challenge in internet telephony. additional critical issues are:
+(a) packet delay, (b) echo, (c) mixing of audio from selected
+clients, (d) automatic selection of clients to participate in the
+conference, (e) playout of mixed audio for every client, (f)
+handling clients not capable of mixing audio streams (such clients
+are known as dumb clients), and (g) deciding the number of
+simultaneously active clients in the conference without
+compromising voice quality.
+while all the above requirements are from the technology point of
+view, the user's perspective and interactions are also essential
+factors. there is plenty of discussion amongst hci and cscw
+community on the use of ethnomethodology for design of cscw
+applications. the basic approach is to provide larger bandwidth,
+more facilities and more advanced control mechanisms, looking
+forward to better quality of interaction. this approach ignores the
+functional utility of the environment that is used for collaboration.
+eckehard doerry [4] criticizes this approach by saying "it is
+keeping form before function". thus, the need is to take an
+approach that considers both aspects - the technical and the
+functional. regarding the functional aspect, we refer to [15]
+where it has been dealt with in some detail.
+in this work, we do not discuss video conferencing; its inclusion
+does not significantly benefit conference quality [4]. our focus is
+on virtual audio environments.
+we first outline the challenges encountered in virtual audio
+conferences. then we look into the motivations followed by
+relevant literature. in section 5, we explain the architecture of our
+system. section 6 comprises description of the various algorithms
+used in our setup. we address deployment issues. a discussion on
+swiss federal institute of technology, lausanne. former visitor at
+cedt.
+pesit and nias, bangalore, india.iv
+ii
+performance follows. we conclude taking alongside some
+implementation issues.
+2. challenges in voip
+conferencing
+many challenges arise in building a voip application. the
+following are of particular concern in the process:
+• ease of use: conferencing must be simple; users need no
+domain expertise. management (addition/removal) of clients
+and servers must be uncomplicated. application
+development should not presuppose specific characteristics
+of the underlying system or of network layers. ease of use
+may include leveraging readily available, technically feasible
+and economically viable technologies.
+• scalability: conferencing must seem uninterrupted under
+heavy loads, i.e., when many additional users are added on.
+traffic on wan should not grow appreciably with the total
+number of clients; else, this has lead to congestion. so a
+means to regulate traffic to a minimum is needed for this
+kind of real-time applications.
+• interactivity: in virtual conferencing environments (vces),
+we intend a face-to-face-like conferencing application that
+mimics a "real" conference, where more vocal participants
+invite attention. turn-taking in floor occupation by
+participants must be adapted gracefully to give a feel of
+natural transition.
+• standardization: the solution must conform to established
+standards so as to gain interoperability and peer acceptance.
+the above requirements are placed in the perspective of
+observations made in earlier works (vide sections 3 and 4) and
+will steer the vce design.
+3. the motivation
+ramanathan and rangan [20] have studied in detail the
+architectural configurations comparing many conferencing
+architecture schemes taking into consideration the network delay
+and computation requirements for mixing. functional division and
+object-oriented architecture design that aid in implementation is
+presented in [1]. an overview of many issues involved in
+supporting a large conference is dealt in [8]. h. p. dommel [5]
+and many others highlight floor control as another pivotal aspect
+to be taken into account in designing a conferencing tool. tightly
+coupled conference control protocols in internet belong to the
+itu-t h.323 family [9]; however, they are mainly for small
+conferences. the latest ietf draft by rosenberg and schulzrinne
+[23] discusses conferencing models with sip [22] in the
+background. aspects of implementation for centralized sip
+conferencing are reported in [26]. a new approach called partial
+mixing by radenkovic [18] allows for mixed and non-mixed
+streams to coexist. in all the above proposals, while there are
+some very useful suggestions, they share one or more of the
+following limitations:
+• in an audio conference, streams from all the clients need not
+be mixed. actually, mixing many arbitrary streams [24] from
+clients degrades the quality of the conference due to the
+reduction in the volume (spatial aspect of speech). the
+number of streams mixed varies dynamically depending on
+the number of active participants. this would lead to
+fluctuations in the volume of every individual participant
+causing severe degradation in quality. customized mixing of
+streams is not possible when many clients are active. there is
+a threshold on the number of simultaneous speakers above
+which increasing the number of speakers becomes
+counterproductive to conference quality. fixing the
+maximum number of simultaneous speakers is dealt in a
+recent work [15] using ethnomethodology, and is
+conjectured to be three. thus it is advisable to honour that
+constraint.
+• there cannot be many intermediate mixers (similarly,
+conference servers as in [10]) in stages as in [20] because it
+brings in inordinate delay by increasing the number of hops
+and is not scalable with interactivity in focus.
+• floor control for an audio conference (even video
+conference) with explicit turn-taking instructions to
+participants renders the conference essentially a 
+one-speakerat-a-time affair, not a live and free-to-interrupt one. this
+way, the conference becomes markedly artificial and its
+quality degrades. schulzrinne et al. [24], assume only one
+participant is speaking at a time. in this case, if applications
+are implemented with some control [5], the service becomes
+‘gagging" for the users.
+• partial mixing [18] has a similar problem as that of mixing
+when more streams are mixed. moreover, in [18], to allow
+impromptu speech, mixing is not done when the network can
+afford high bandwidth requirements for sending/receiving all
+the streams, but it is unnecessary [15].
+• for large conferences [23, 10] a centralized conference
+cannot scale up. with multicasting, clients will have to parse
+many streams and traffic on a client"s network increases
+unnecessarily.
+evidently, different particular issues, all of which are a subset of
+requirements (defined in [14] and [16]) for a voip conferencing
+support, are tackled. thus there is a need to address conferencing
+as a whole with all its requirements considered concurrently.
+towards this goal, the voip conferencing system we propose is
+intended to be scalable and interactive. we make use of the
+"loudness number" for implementing floor control. this permits
+a participant to freely get into the speaking mode to interrupt the
+current speaker as in a natural face-to-face meeting. an upper
+limit on the number of floors (i.e., the number of speakers
+allowed to speak at the same time) is fixed using a conjecture
+proposed in [15].
+the work presented here is in continuation of our studies into
+conferencing based on the session initiation protocol in [14] and
+[16]. sip, defined in [22] is now the most popular standard for
+voip deployment and has been chosen for its strength, ease of
+use, extensibility and compatibility. this is the reason it will be in
+the background of all controlling messages that will implicitly
+arise between the entities in our architecture. the actual messages
+are described in [16] and, as such, we do not present a complete
+description of them here.
+4. related work
+the sip standard defined in rfc 3261 [22] and in later
+extensions such as [21] does not offer conference control services
+such as floor control or voting and does not prescribe how a
+conference is to be managed. however sip can be used to initiate
+a session that uses some other conference control protocol.
+the core sip specification supports many models for
+conferencing [26, 23]. in the server-based models, a server mixes
+media streams, whereas in a server-less conference, mixing is
+done at the end systems. sdp [7] can be used to define media
+capabilities and provide other information about the conference.
+we shall now consider a few conference models in sip that have
+been proposed recently [23].
+first, let us look into server-less models. in end-system mixing,
+only one client (sip ua) handles the signaling and media mixing
+for all the others, which is clearly not scalable and causes
+problems when that particular client leaves the conference. in the
+users joining model, a tree grows, as each invited party
+constitutes a new branch in the distribution path. this leads to an
+increasing number of hops for the remote leaves and is not
+scalable. another option would be to use multicast for
+conferencing but multicast is not enabled over internet and only
+possible on a lan presently. among server-based models, in a
+dial-in conference, uas connect to a central server that handles
+all the mixing. this model is not scalable as it is limited by the
+processing power of the server and bandwidth of the network. 
+adhoc centralized conferences and dial-out conference servers
+have similar mechanisms and problems.
+hybrid models involving centralized signaling and distributed
+media, with the latter using unicast or multicast, raise scalability
+problems as before. however an advantage is that the conference
+control can be a third party solution.
+distributed partial mixing, presented in [18], proposes that in
+case of bandwidth limitation, some streams are mixed and some
+are not, leaving interactivity intact. loss of spatialism when they
+mix and the bandwidth increase when they do not are open
+problems. a related study [19] by the same author proposes
+conferencing architecture for collaborative virtual environments
+(cves) but does not provide the scalability angle without the
+availability of multicasting. with the limitations of proposed
+conferencing systems in mind, we will now detail our proposal.
+5. system architecture
+this section is dedicated to the description of the proposed system
+architecture. however, as this paper constitutes the continuation
+of our work started in [14] and furthered in [16], we will not
+present here all the details about the proposed entities and invite
+the readers to consult the papers mentioned above for a full and
+thorough description.
+first, we do not restrict our conferencing system to work on small
+conferences only, but rather on large audio vces that have
+hundreds (or even thousands) of users across a wide area
+network (wan) such as the internet. this view stems from an
+appraisal that vces will gain in importance in the future, as
+interactive audio conferences will be more popular because of the
+spread of the media culture around the world.
+two issues must be taken care of when building a voip
+conferencing system: (i) the front-end, consisting of the
+application program running on the end-users" computers and (ii)
+the back-end that provides other application programs that
+facilitate conferencing and conference.
+the participating users are grouped into several domains. these
+domains are local area networks (lans), such as corporate or
+educational networks. this distributed assumption asks for
+distributed controlling and media handling solutions, as
+centralized systems would not scale for such very large
+conferences (vide section 4).
+more explicitly, in each domain, we can identify several relevant
+logical components of a conferencing facility (fig. 1):
+ an arbitrary number of end users (clients) that can take part
+in at most one audio conference at a time. every user is
+fig. 1. conference example - 3 domains containing the necessary entities so that the conference can
+take place.
+included in one and only one domain at a given instant, but
+can move from domain to domain (nomadism). in our
+conferencing environment, these clients are regular sip user
+agents (sip uas), as defined in [22] so to gain in
+interoperability with other existing sip-compatible systems.
+these clients are thus not aware of the complex setting that
+supports the conference and this is highlighted below.
+ one sip server (sips) per domain, taking care of all the
+signaling aspects of the conference (clients joining, leaving,
+etc.) [16]. in particular, it is considered as a physical
+implementation encompassing different logical roles, namely
+a sip proxy server, a sip registrar server, a sip redirect
+server and a sip b2bua (back-to-back user agent) [22].
+this physical implementation enables the handling of
+incoming/outgoing sip messages by one or another logical
+entity according to the needs. sips is entrusted with
+maintaining total service and has many advantages such as
+(a) it works as a centralized entity that can keep track of the
+activities of the uas in a conference; (b) it can do all the
+switching for providing pbx features; (c) it can locate the
+uas and invite them for a conference; (d) it can do the
+billing as well. sipss in different domains communicate
+with each other using sip messages as described in [16]. if
+the load on a particular sips is too heavy, it can create
+another sips in the same domain so that the load will be
+shared.
+ one master conference server (m-cs) (simply a conference
+server (cs)) for each conference is created by the local sips
+when a conference starts. this server will be used for
+handling media packets for the clients of the domain. its
+mechanism will be described in the next section. the m-cs
+will be able to create a hierarchy of css inside a domain by
+adding one or more slave css (s-css) to accommodate all
+the active clients and prevent its own flooding at the same
+time. we will see this mechanism in some detail in the
+sequel.
+the entities described here are exhaustive and conform to the sip
+philosophy. thus, the use of sip makes this architecture more
+useful and interoperable with any other sip clients or servers.
+6. algorithmic issues
+6.1 selecting the streams
+similar to sipconf in [27], a conference server (cs) [17] has the
+function of supporting the conference; it is responsible for
+handling audio streams using rtp. it can also double to convert
+audio stream formats for a given client if necessary and can work
+as translators/mixers of rtp specification behind firewalls.
+we have based the design of our cs on h.323 multipoint
+processor (mp) [9]. in short, the mp receives audio streams from
+the endpoints involved in a centralized or hybrid multipoint
+conference, processes them and returns them to the endpoints. an
+mp that processes audio prepares nmax audio outputs from m
+input streams after selection, mixing, or both. audio mixing
+requires decoding the input audio to linear signals (pcm or
+analog), performing a linear combination of the signals and 
+reencoding the result in an appropriate audio format. the mp may
+eliminate or attenuate some of the input signals in order to reduce
+noise and unwanted components.
+fig. 2. schematic diagram of a cs
+the limitation of h.323 is that it does not address the scalability
+of a conference. the architecture proposes a cascaded or daisy
+chain topology [10], which can be shown that it cannot scale up
+for a large conference.
+a cs serves many clients in the same conference. thus it handles
+only one conference at a time. multiple css may coexist in a
+domain, as when there are several conferences under way.
+signaling-related messages of css are dealt in [11].
+the working of a cs is illustrated on fig. 2: for each mixing
+interval, cs 1 chooses the best nmax audio packets out of the
+m1 (using a criterion termed "loudness number, described in the
+next subsection). it may possibly receive and sends these to css 2
+to p. the set of packets sent is denoted as toothercss. in the
+same mixing interval, it also receives the best nmax audio packets
+(out of possibly m2) from cs 2, similarly the best nmax (out of
+possibly mp) from cs p. for simplicity, we ignore propagation
+delay between css which indeed can be taken into account; it is
+beyond the scope of this presentation. the set of packets received
+is denoted as fromothercss. finally, it selects the best nmax
+packets from the set {toothercss union fromothercss} and
+passes these packets to its own group.
+it can be seen that the set {toothercss union fromothercss} is
+the same at all css. this ensures that any client in the conference
+finally receives the same set of packets for mixing. hence all
+clients obtain a common view of the conference.
+similarly, for each time slot (packet time), a subset, f of all
+clients is selected (using the same criterion) from the pool of
+packets from all other css plus the nmax clients selected locally.
+their packets are mixed and played out at the clients. according
+to [15], the cardinality of f, |f| is nmax and is fixed at three.
+in our conferencing setup, selection is by the master conference
+server (m-cs), which comes into the picture exclusively for
+media handling. note that even if the sip specification enables
+direct ua-to-ua media communication in a one-to-one call, it is
+also possible to use the conference server for two-party calls,
+especially because it is then more functional to create a real
+conference by adding a third and subsequently more
+participant(s).
+there are cases wherein the processing capacity of an m-cs is
+exceeded as it may have too many packets - from local domains
+and from remote domains - to process. in that case, the m-cs will
+create one or many s-cs (fig. 6) and transfer its own clients as
+well as the new clients to them. in this configuration, the
+algorithm outlined above will be slightly modified, as the audio
+packets will go from clients to their dedicated s-cs that will
+select nmax packets to send to the local m-cs, which will then
+select nmax packets from all its s-css in the domain before
+sending them to the remote domains. the incoming packets from
+other domains will be received by the m-cs, select nmax of them
+and send them directly to the domain clients, bypassing the 
+scss. this change implies that at most three intermediate entities
+exist for each audio packet, instead of two in the conventional
+setup. as the extra hop happens inside the lan supposed to have
+a high-speed connectivity, we consider that it should not prevent
+us from using this hierarchy of css when there"s a need to do so.
+6.2 loudness number (ln)
+a basic question to be answered by the cs is the following. in a
+mixing interval, how should it choose nmax packets out of the m it
+might possibly receive? one way is to rank the m packets
+received according to their energies, and choose the top nmax.
+however, this is usually found to be inadequate because random
+fluctuations in packet energies can lead to poor audio quality. this
+indicates the need for a metric different from mere individual
+packet energies. the metric should have the following
+characteristics [12]:
+• a speaker (floor occupant) should not be cut off by a spike in
+the packet energy of another speaker. this implies that a
+speaker"s speech history should be given some weight. this
+is often referred to as persistence or hangover.
+• a participant who wants to interrupt a speaker will have to
+(i) speak loudly and (ii) keep trying for a little while. in a
+face-to-face conference, body language often indicates the
+intent to interrupt. but in a blind conference under
+discussion, a participant"s intention to interrupt can be
+conveyed effectively through ln.
+a floor control mechanism empowered to cut off a speaker
+forcefully must be ensured.
+these requirements are met by loudness number [12], which
+changes smoothly with time so that the selection (addition and
+deletion) of clients for conference is graceful.
+ln (= ) is a function of the amplitude of the current audio stream
+plus the activity and amplitude over a specific window in the past.
+fig. 3. the different windows used for ln computation
+the loudness number is updated on a packet-by-packet basis.
+the basic parameter used here is packet amplitude, which is
+calculated as root mean square (rms) of the energies in audio
+samples of a packet, and denoted by xk. three windows are
+defined as shown in fig. 3.
+the present amplitude level of the speaker is found by calculating
+the moving average of packet amplitude (xk) within a window
+called recent past window starting from the present instant to
+some past time. the past activity of the speaker is found by
+calculating the moving average of the packet amplitude (xk)
+within a window called distant past window, which starts at
+the point where the recent past window ends and stretches
+back in the past for a pre-defined interval. the activity of the
+speaker in the past is found with a window called activity
+horizon, which spans the recent past window as well as the
+distant past window and beyond if necessary. though the
+contribution of the activity horizon looks similar to the
+contribution of the recent past and distant past windows, past
+activity is computed from activity horizon window in a
+differently.
+define the quantities during these three intervals as l1, l2 and l3.
+l1 quantifies the recent past speech activity, l2 the distant past
+speech activity and l3 gives a number corresponding to the speech
+activity in the activity horizon window quantifying how active
+the speaker was in the past few intervals. l3 yields a quantity that
+is proportional to the fraction of packets having energies above a
+pre-defined threshold (eq. 3). the threshold is invariant across
+clients.
+∑
++−
+=
+=
+1
+1
+1 rpp
+p
+wt
+tk
+k
+rp
+x
+w
+l (1)
+∑
++−−
+−=
+=
+1
+2
+1 dprpp
+rpp
+wwt
+wtk
+k
+dp
+x
+w
+l (2)
+∑
++−
+=
+≥=
+1
+}{3 *
+1 ahp
+p
+k
+wt
+tk
+x
+ah
+i
+w
+l θθ (3)
+where ifi kx 1}{ =≥θ θ≥kx
+= otherwise,0
+the threshold is a constant. is set at 10-20 percent of the
+amplitude of the voice samples of a packet in our implementation
+here. loudness number λ for the present time instant (or the
+present packet) is calculated as,
+332211 *l*l*l αααλ ++= (4)
+here 1 2 dqg 3 are chosen such that:
+0< 1 2  1 2 dqg 3=1- 1 2)
+here, 1 is the weight given to the recent past speech, 2 is the
+weight given to distant past speech and 3 is the weight given to
+speech activity in the activity horizon window considered.
+6.3 safety, liveness and fairness
+the λ parameter kdv vrph phpru\ ghshqglqj rq wkh vsuhdg ri
+the windows. after one conferee becomes silent, another can take
+the floor. also, as there is more than one channel, interruption is
+enabled. a loud conferee is more likely to be heard because of
+elevated λ. this ensures fairness to all conferees. after all, even
+in a face-to-face conference, a more vocal speaker grabs special
+attention. all these desirable characteristics are embedded into the
+ln. a comprehensive discussion on selection of the various
+parameters and the dynamics of ln are beyond the scope of this
+paper.
+6.4 selection algorithm using the ln
+following the developments in subsections 6.1 and 6.2, we
+present the simple algorithm that runs at each master-conference
+server (algorithm. 1). this algorithm is based on the discussions
+in section 6.1. the globally unique set f is found using this
+procedure.
+repeat for each time slot at each m-cs
+{
+1. get all the packets from the clients
+that belong to it.
+2. find at most nmax clients that have
+pd[lpxp rxw ri 0 &olhqwv lq lwv grpdlq
+3. store a copy of packets from those nmax
+clients in database db1.
+4. send these nmax packets to other m-css (on
+unicast or multicast, depending on the
+configuration).
+5. similarly, receive packets from all
+other m-css and store them in database
+db2.
+6. now compare the packets in db1 and db2 on
+wkh edvlv ri dqg vhohfw d pd[lpxp ri
+nmax amongst them (to form set f) that
+should be played out at each client.
+7. send the nmax packets in set f to the
+clients in its domain.
+8. mix these nmax audio packets in set f after
+linearising and send it to dumb clients
+in the domain.
+}
+algorithm 1. selection algorithm
+the mechanism proposed here is also depicted on fig. 6, where a
+single conference takes place between three domains. the shaded
+clients are the ones selected in their local domains; their audio
+streams will be sent to other css.
+7. deployment issues
+we now analyze deployment issues associated with conference
+management. how are domains to be organized to maximize the
+number of participants able to join? to address this, we define
+some useful parameters.
+ let d be the number of different domains in which there are
+active clients in a given conference.
+ let mi be the number of active clients present in domain i
+( di ≤≤1 ) in a given conference. the total number of
+active clients in the conference is thus ∑=
+=
+d
+i
+imm
+1
+.
+ let c be the maximum number of audio streams a
+conference server can handle in a packet time, also called
+capacity. c is set according to the processing power of the
+weakest cs in the conference but as it cannot be assumed
+that we know it a-priori, it can be set according to some
+minimum system requirement a machine must meet in order
+to take part in a conference.
+ let nmax be the number of output streams a cs has to send to
+other css in remote domains (see section 6.1). we will set
+nmax =3 (=|f|), according to [15].
+the optimization problem is now to find the value of d that
+maximizes the total number of clients mi served by one cs in a
+domain with capacity c. we first dispose the case where the
+capacity is not exceeded (the existing cs is not overloaded), and
+then proceed to the case where there exists a need to create more
+css when a single cs is overloaded.
+we assume that clients are equally distributed amongst the
+domains, as we may not have information to assume an a-priori
+distribution of the clients. we can specify no more than an upper
+bound on the number of clients acceptable, given the number of
+active domains d.
+7.1 conferencing with only one level of css
+in this subsection, we consider that we have only one cs, i.e., a
+unique m-cs in each domain. thus it cannot be overloaded. we
+consider that the system works as outlined in section 6.1: the
+clients send their audio packets to their local cs, which selects
+nmax streams, before sending them to other css. in parallel, it also
+receives nmax streams for every other css before taking a decision
+on which nmax streams will be selected, sent and played out at
+each individual clients.
+for system stability, any cs in the conference should be able to
+handle its local clients in addition to the audio packets from other
+domains. clearly then, the following inequality must hold for
+every domain:
+)1( −⋅+≥ dn
+d
+m
+c max (5)
+the limiting case of (5) (taking the equality) takes the form
+2
+)( dndncm maxmax ⋅−⋅+= (6)
+to optimize d with respect to m, we set
+0)(2 =+−⋅⋅=
+∂
+∂
+maxmax ncdn
+d
+m
+(7)
+yielding
+
+
+
+
+⋅
++
+=
+max
+max
+n
+nc
+d
+2
+(8)
+([ ]* = rounding to nearest integer) and hence, m from (6).
+c d m
+50 9 234
+100 17 884
+150 26 1950
+200 34 3434
+250 42 5334
+300 51 7650
+350 59 10384
+400 67 13534
+450 76 17100
+500 84 21084
+table 1. values of d and m computed for some values of c
+with nmax = 3.
+in table 1, we give the values of d and m that were computed
+using (8) and (6) with nmax = 3. we see that the values of d and
+m, being dependent of c, are therefore based on the weakest cs.
+we see that there is a trade-off between m and d. we could admit
+more domains in the conference, but at the expense of restricting
+the total number of clients m in the conference.
+while implementing and testing the conference servers on a
+pentium iii 1.4 ghz running windows nt, we were able to set
+c=300. but with the advent of faster computers (> 3 ghz), one
+can easily set c to higher values and determine d and m
+accordingly.
+fig. 4 shows a contour plot and fig. 5, a 3d-mesh showing
+optimized solutions for css of different capacities. these lead us
+to maximize the number of domains, and hence, to maximize the
+total number of clients based on the capacity of various css. in
+fig. 4, the individual curves represent the total number of clients
+targeted, and we select a lower value of d, for capacity c, for
+targeted m to reduce traffic on wan. fig. 5 represents a different
+perspective of the same data in 3d.
+fig. 4. contour plot of capacity versus optimum number of
+domains for various conference sizes
+7.2 conferencing with two levels of css
+now considering the case where the number of clients in a
+particular domain is too large, i.e.,
+d
+m
+mi ≥ (9)
+one has to avoid the denial of service for new clients due to
+overloading of conference server. this problem can be solved by
+introducing a second level of css inside the given domain, as in
+fig. 6. the existing m-cs creates a slave cs (s-cs) that can
+handle up to c end-users and to which it transfers all its active
+clients. here, the system works differently as outlined in section
+6.1: the clients send their audio packets to their local s-cs,
+which selects nmax streams, before sending them to a local m-cs,
+which will proceed in the same way, before sending nmax streams
+to the other domains. each newly created s-cs must run on a
+separate machine. the m-cs has to create more s-css if the
+number of active clients exceeds c in the course of the conference
+after the transfer.
+with this mechanism, the m-cs will be able to create utmost
+
+
+
+ −⋅−
+=
+max
+max
+n
+dnc
+u
+)1(
+s-css, (10)
+as it must handle 3 (= nmax) packets for each local s-css and
+3 (= nmax) packets from each other remote domains. we can then
+calculate the maximum theoretical number of active clients
+cumi ⋅= in each domain as well as m, for the whole
+conference as cudm ⋅⋅= .
+fig. 5. 3d plot of capacity versus optimum number of domains
+for various conference sizes
+of course, one could further create a third level in the hierarchy,
+giving the possibility of accommodating even more clients. this
+may be unnecessary as the number of possible clients is large
+enough with two levels.
+8. performance discussion
+we now analyze the performance of the algorithm presented in
+subsection 6.3, i.e., the one taking care of the exchange of audio
+packets between the different domains. note that the packets that
+are transiting within the lan take advantage of the higher
+capacity (generally coupled with multicast capabilities) and
+therefore do not require a performance analysis.
+thus we have to look only at the rtp packets over the wan, i.e.,
+between participating m-css. as each m-cs from a domain will
+be sending only nmax out of
+d
+m packets to the other css
+( maxn
+d
+m
+>> ), the bandwidth used by the application over a
+wan is upper-bounded by the following expression.
+the total number of audio packets transiting over the wan for
+each time slot is ∑ ∑= ≠=
+
+
+
+
+
+
+
+d
+i
+d
+ijj
+maxn
+1 ,1
+which is quadratic in the
+number of domains (i.e., o(d2
+)).
+however, it is independent of the total number of active clients.
+this would not have been the case had all packets been sent over
+the network in each time slot.
+the saving is tremendous. yet, one may contend that sending
+three packets to and from all domains is a waste of resources, as
+most of these streams will not be selected. if just one client is
+active, selecting a subset of clients in that domain is unnecessary.
+pessimistic and optimistic algorithms as presented in the sequel
+aim at reducing the traffic further by harnessing the slow varying
+nature of the ln.
+8.1 pessimistic algorithm
+consider a scenario wherein the lowest ln (called lnt) of the
+three globally selected streams (set f of section 6.1) exceeds the
+ln of the most dominant stream of a domain. evidently, the
+chances that the next two dominant streams of that domain being
+selected to f in the next packet period are less. here, we send this
+most dominant stream and withhold the other two. there may be
+an error in unique selection across all domains for one packet
+period only. as ln varies slowly, the error would get
+automatically rectified in a subsequent packet period (slot). in this
+algorithm, there is at least one stream in each period. the net
+network traffic in a packet period in the best case is )1( −⋅ dd ,
+i.e., )( 2
+do using unicast, instead of maxndd ⋅−⋅ )1( .
+considerable valuable bandwidth can be saved using this
+heuristic. the resulting traffic complexity reduces from o(d2
+) to
+o(d) in multicast-enabled networks.
+initialize lnt = 0 at an m-cs/s-cs
+a. in the first time slot (packet time), each cs
+sends the top nmax streams (based on their ln)
+to all other css.
+at each m-cs/s-cs and for each packet time:
+b. find the value of lowest ln of the nmax
+globally selected streams (set f) from the
+previous time slot. set lnt with this value.
+c. at each cs domain, select the nmax local
+streams that have maximum value of ln
+(toothercss set).
+d. select streams that have ln > lnt.
+if there are >= nmax streams with ln > lnt
+then send top nmax to other css.
+else if there are (nmax-1) streams with ln>lnt
+then send top (nmax-1) plus the one lower
+than lnt (i.e., top nmax) to other css.
+else if there are (nmax-2) streams with ln>lnt
+then send top (nmax-2) plus the one lower
+than lnt (i.e. top (nmax -1)) to other css.
+……
+else if there are no streams with ln> lnt
+then send top 1 stream to other css.
+e. packets sent in step d form db1. packets
+received from other css form db2.
+f. for this time slot, find global nmax streams
+based on ln from db1 u db2 (set f)
+g. send set f to the clients in its domain.
+update lnt for the next period.
+algorithm 2. pessimistic algorithm to reduce the number of
+packets sent over the internet.
+fig. 6. example of a 2-level hierarchy of conference servers; the shaded clients are the one selected by the m-cs and
+will be sent to other domains" css.
+in this algorithm the saving in traffic is at the cost of relaxing the
+condition of formation of globally unique set f. however, the
+discrepancies in selected streams at different domains remain for a
+short period of time depending on the transportation delay
+between any two domains. even for a total delay of 400ms, for
+only 10 packet time slots the uniqueness is lost. this duration in a
+real-time interactive conversation is non-perceivable by the
+listener. in the case that there is a joke and every one laughs, then
+there would be sudden rise in the number of packets and it would
+be upper bounded by maxn)d(o 2
+for a short period.
+8.2 optimistic algorithm
+the traffic can be reduced further. the scheme in the following
+algorithm (algorithm. 3) is withholding all the streams that have
+less value of ln compared to the least of the three in the set f.
+we can find the correct and unique three streams after a few time
+slots depending on the transportation delay between the domains.
+as the packet period is of the order of 40ms, the error in the
+selection is unnoticeable. the number of streams on network in
+this case is always restricted to nmax (=3). even without voice
+activity detection (vad), there will be no more than three
+streams in the network in the best case, thus the total traffic is
+constant. a sudden burst of traffic, as described in 8.1, is a
+particular case. these advantages are due to exploitation of the
+characteristics of ln.
+initialize lnt = 0 at an m-cs/s-cs
+a. in the first time slot (packet time), each cs
+sends the top nmax streams (based on their ln)
+to all other css.
+at each m-cs/s-cs and for each packet time:
+b. find the value of lowest ln of the nmax
+globally selected streams (set f) from the
+previous time slot. set lnt with this value.
+c. at each cs domain, select the nmax local
+streams that have maximum value of ln
+(toothercss set)
+d. select streams that have ln > lnt
+if there are >= nmax streams with ln > lnt
+then send top nmax to other css.
+else if there are (nmax-1) streams with ln>lnt
+then send top (nmax-1) and see e.
+else if there are (nmax-2) streams with ln>lnt
+then send top (nmax-2) and see e.
+……
+else if there are no streams with ln> lnt
+then don"t send any stream.
+e. exceptions:
+if the stream that was in f in the last
+interval belongs to this cs then select and
+send that stream even if its ln is now < lnt.
+(note this occurs only at that cs which had
+the stream that was the last of the three in
+the previous packet period.)
+f. packets sent in step d and e form db1. packets
+received from other css form db2.
+g. for this time slot, find global nmax streams
+based on ln from db1 u db2 (set f).
+h. send set f to the clients in its domain.
+update lnt for the next period.
+algorithm 3. optimistic algorithm to reduce the number of
+packets sent over the internet
+furthermore, when vad is used [13], it would further reduce the
+traffic by sending the header part of the rtp packet only and not
+the whole packet, thus in order to keep updating the ln across.
+the traffic here in this case is o(nmax) for multicast and o(d) for
+unicast.
+we see that the above algorithms save bandwidth and
+computation at each cs, and leads to a scalable architecture with
+multiple css mainly because clients are grouped in domains. the
+necessary bandwidth is not dependent on the total number of
+active clients. as the cs always chooses the best three clients out
+of all the clients assigned to it in the domain, addition of new
+clients to the existing conference will not cause any scalability
+problem.
+8.3 availability of multicasting
+in the architecture that has been proposed, no assumption was
+made about the availability of multicasting support from the
+network. the traffic will be further reduced if multicasting is
+available over wan. it is simple to show that the order of traffic
+would tend to become o(d) from o(d2
+). this is an approximation
+as saving in multicasting depends also on the topology. the
+analysis was done for the case wherein multicast is not available
+(a realistic assumption in today"s internet). the advantage of this
+set up is that we can use it even if multicasting is partially
+available. we can instruct css during the set-up phase to send
+unicast packets to those css that cannot receive multicast packets
+whereas css on multicast enabled routers can exchange packets
+on a multicast address. the data structures and conference objects
+inside a cs is given in [14].
+fig. 7. user interface for setting the weight for nmax audio
+streams (setting self-bar to zero avoids echo).
+8.4 quality improvement
+the observed improvement in the perceived quality of the
+conference service is due to: (1) limiting the number of concurrent
+speakers to a low number such as three. generally, in a
+conference if more than two participants speak the intelligibility is
+lost. the conversational analysis demonstrates that there would be
+a repair mechanism [15] in such a case. (2) delay: the audio
+stream between any two clients will pass through at most two css
+thus reducing the end-to-end delay. for a large conference there
+might be three css however, one hop is within the domain
+incurring negligible delay. (3) as the streams are mixed only at
+the clients, there can be a customized mix of the streams. the
+individual tuning of mixing with weights the spatialism is
+preserved. fig. 7 shows the user interface for the same. the echo
+when self-stream is selected can be avoided by reducing the
+weight. nonetheless, feedback helps in reassuring speaker that
+he/she is heard by all.
+9. conclusion
+in this paper, we have presented a discussion on a voice-only
+virtual conferencing environment. we have argued that the
+distributed nature of deployment here makes it scalable.
+interactivity is achieved by adapting a recent stream selection
+scheme based on loudness number. additionally, we incorporate
+a result from a more recent work [15] where the sufficiency of
+three simultaneous speakers has been demonstrated. thus, there is
+significantly effective utilization of bandwidth. a mixed stream is
+played out at each client; each client may choose to have a
+customized mix since mixing is done at the local terminal of each
+client. these render impromptu speech in a virtual teleconference
+over voip a reality, as in a real face-to-face conference.
+compatibility is assured thanks to the use of sip, the most 
+soughtafter signaling protocol. to ensure a satisfying performance, we
+do not demand the availability of multicast, but use it if and when
+available. the traffic in the wan (internet) is upper-bounded by
+the square of the number of domains, -- further reduced by using
+heuristic algorithms -- which is far below the total number of
+clients in the conference. this is due to the use of a conference
+server local to each domain. vad techniques help further traffic
+reduction. using sip standard for signaling makes this solution
+highly interoperable.
+we have implemented a cs application on a campus-wide
+network. we believe this new generation of virtual conferencing
+environments will gain more popularity in the future as their ease
+of deployment is assured thanks to readily available technologies
+and scalable frameworks.
+10. references
+[1] l aguilar et al., architecture for a multimedia
+teleconferencing system, in proceedings of the acm
+sigcomm, aug 1986, pp. 126-136.
+[2] carsten bormann, joerg ott et al., simple conference
+control protocol, internet draft, dec. 1996.
+[3] m. decina and v. trecordi, "voice over internet protocol
+and human assisted e-commerce", ieee comm.
+magazine, sept. 1999, pp. 64-67.
+[4] eckehard doerry, "an empirical comparison of copresent
+and technologically-mediated interaction based on
+communicative breakdown", phd thesis, graduate school
+of the university of oregon, 1995.
+[5] h. p. dommel and j.j. garcia-luna-aceves, "floor control
+for multimedia conferencing and collaboration", j.
+multimedia systems, vol. 5, no. 1, january 1997, pp. 23-38.
+[6] amitava dutta-roy, "virtual meetings with desktop
+conferencing", ieee spectrum, july 1998, pp. 47-56.
+[7] m. handley and v. jacobson, "sdp: session description
+protocol", rfc 2327, ietf, april 1998.
+[8] m. handley, j. crowcroft et al., "very large conferences on
+the internet: the internet multimedia conferencing
+architecture", journal of computer networks, vol. 31, no.
+3, feb 1999, pp. 191-204.
+[9] itu-t rec. h.323, packet based multimedia
+communications systems, vol. 2, 1998.
+[10] p. koskelainen, h. schulzrinne and x. wu, "a sip-based
+conference control framework", nossdav"02, may 2002,
+pp. 53-61.
+[11] r venkatesha prasad et al., control protocol for voip
+audio conferencing support, international conference on
+advanced communication technology, mu-ju, south
+korea, feb 2001, pp. 419-424.
+[12] r venkatesha prasad et al., "automatic addition and
+deletion of clients in voip conferencing", 6th
+ieee
+symposium on computers and communications, july 2001,
+hammamet, tunisia, pp. 386-390.
+[13] r venkatesha prasad, h s jamadagni, abjijeet, et al
+comparison of voice activity detection algorithms, 7th
+ieee symposium on computers and communications. july
+2002, sicily, italy, pp. 530-535.
+[14] r. venkatesha prasad, richard hurni, h s jamadagni, a
+scalable distributed voip conferencing using sip, proc.
+of the 8th
+ieee symposium on computers and
+communications, antalya, turkey, june 2003.
+[15] r venkatesha prasad, h s jamadagni and h n shankar,
+"on problem of specifying number of floors in a voice
+only conference", to appear in ieee itre 2003.
+[16] r. venkatesha prasad, richard hurni, h s jamadagni, "a
+proposal for distributed conferencing on sip using
+conference servers", to appear in the proc. of mmns
+2003, belfast, uk, september 2003.
+[17] r. venkatesha prasad, h.s. jamadagni, j. kuri, r.s.
+varchas, a distributed voip conferencing support using
+loudness number, tech. rep. tr-cedt-te-03-01
+[18] m. radenkovic et al, "scaleable and adaptable audio
+service for supporting collaborative work and
+entertainment over the internet", ssgrr 2002, l'aquila,
+italy, jan. 2002.
+[19] m. radenkovic, c. greenhalgh, s. benford, deployment
+issues for multi-user audio support in cves, acm vrst
+2002, nov. 2002, pp. 179-185.
+[20] srinivas ramanathan, p. venkata rangan, harrick m. vin,
+designing communication architectures for
+interorganizational multimedia collaboration, journal of
+organizational computing, 2 (3&4), pp.277-302, 1992.
+[21] a. b. roach, " session initiation protocol (sip)-specific
+event notification", rfc 3265, ietf, june 2002.
+[22] j. rosenberg, h. schulzrinne et al., "sip: session initiation
+protocol", rfc 3261, ietf, june 2002.
+[23] j. rosenberg, h. schulzrinne, models for multy party
+conferencing in sip, internet draft, ietf, july 2002.
+[24] h. schulzrinne et al., "rtp: a transport protocol for 
+realtime applications", rfc 1889, ietf, jan 1996.
+[25] lisa r. silverman, "coming of age: conferencing
+solutions cut corporate costs", white paper,
+www.imcca.org/wpcomingofage.asp
+[26] kundan singh, gautam nair and henning schulzrinne,
+"centralized conferencing using sip", proceedings of the
+2nd ip-telephony workshop (iptel), april 2001.
+[27] d. thaler, m. handley and d. estrin, "the internet
+multicast address allocation architecture", rfc 2908,
+ietf, sept. 2000.

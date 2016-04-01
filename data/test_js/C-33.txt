@@ -1,0 +1,12 @@
+how to provide appropriate context information is a 
+challenging problem in context-aware computing. most existing
+approaches use a centralized selection mechanism to decide
+which context information is appropriate. in this paper, we
+propose a novel approach based on negotiation with rewards
+to solving such problem. distributed context providers 
+negotiate with each other to decide who can provide context
+and how they allocate proceeds. in order to support our
+approach, we have designed a concrete negotiation model
+with rewards. we also evaluate our approach and show that
+it indeed can choose an appropriate context provider and
+allocate the proceeds fairly.

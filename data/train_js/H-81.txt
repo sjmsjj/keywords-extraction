@@ -1,0 +1,13 @@
+in visual information retrieval the careful choice of suitable
+proximity measures is a crucial success factor. the evaluation
+presented in this paper aims at showing that the distance measures
+suggested by the mpeg-7 group for the visual descriptors can be
+beaten by general-purpose measures. eight visual mpeg-7
+descriptors were selected and 38 distance measures implemented.
+three media collections were created and assessed, performance
+indicators developed and more than 22500 tests performed.
+additionally, a quantisation model was developed to be able to
+use predicate-based distance measures on continuous data as well.
+the evaluation shows that the distance measures recommended in
+the mpeg-7-standard are among the best but that other measures
+perform even better.

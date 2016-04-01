@@ -1,0 +1,12 @@
+distributed applications require distributed techniques for
+efficient resource allocation. these techniques need to take
+into account the heterogeneity and potential unreliability of
+resources and resource consumers in a distributed 
+environments. in this paper we propose a distributed algorithm that
+solves the resource allocation problem in distributed 
+multiagent systems. our solution is based on the self-organisation
+of agents, which does not require any facilitator or 
+management layer. the resource allocation in the system is a purely
+emergent effect. we present results of the proposed resource
+allocation mechanism in the simulated static and dynamic
+multi-server environment.

@@ -1,0 +1,25 @@
+conflex-g is the grid-enabled version of a molecular 
+conformational space search program called conflex. we
+have implemented conflex-g using a grid rpc system
+called omnirpc. in this paper, we report the performance
+of conflex-g in a grid testbed of several geographically
+distributed pc clusters. in order to explore many 
+conformation of large bio-molecules, conflex-g generates
+trial structures of the molecules and allocates jobs to 
+optimize a trial structure with a reliable molecular mechanics
+method in the grid. omnirpc provides a restricted 
+persistence model to support the parametric search applications.
+in this model, when the initialization procedure is defined
+in the rpc module, the module is automatically 
+initialized at the time of invocation by calling the initialization
+procedure. this can eliminate unnecessary communication
+and initialization at each call in conflex-g. 
+conflexg can achieve performance comparable to conflex mpi
+and can exploit more computing resources by allowing the
+use of a cluster of multiple clusters in the grid. the 
+experimental result shows that conflex-g achieved a speedup
+of 56.5 times in the case of the 1bl1 molecule, where the
+molecule consists of a large number of atoms, and each trial
+structure optimization requires significant time. the load
+imbalance of the optimization time of the trial structure
+may also cause performance degradation.

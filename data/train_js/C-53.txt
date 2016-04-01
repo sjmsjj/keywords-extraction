@@ -1,0 +1,14 @@
+dead-reckoning (dr) is an effective method to maintain
+consistency for continuous distributed multiplayer games
+(cdmg). since dr can filter most unnecessary state updates and
+improve the scalability of a system, it is widely used in
+commercial cdmg. however, dr cannot maintain high
+consistency, and this constrains its application in highly
+interactive games. with the help of global synchronization, dr
+can achieve higher consistency, but it still cannot eliminate before
+inconsistency. in this paper, a method named globally
+synchronized dr with local lag (gs-dr-ll), which combines
+local lag and globally synchronized dr (gs-dr), is presented.
+performance evaluation shows that gs-dr-ll can effectively
+decrease before inconsistency, and the effects increase with the
+lag.

@@ -1,0 +1,11 @@
+a model of providing service in a p2p network is analyzed.
+it is shown that by adding a scrip system, a mechanism that
+admits a reasonable nash equilibrium that reduces free 
+riding can be obtained. the effect of varying the total amount
+of money (scrip) in the system on efficiency (i.e., social 
+welfare) is analyzed, and it is shown that by maintaining the
+appropriate ratio between the total amount of money and
+the number of agents, efficiency is maximized. the work
+has implications for many online systems, not only p2p 
+networks but also a wide variety of online forums for which scrip
+systems are popular, but formal analyses have been lacking.

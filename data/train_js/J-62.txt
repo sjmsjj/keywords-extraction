@@ -1,0 +1,12 @@
+weak monotonicity is a simple necessary condition for a 
+social choice function to be implementable by a truthful 
+mechanism. roberts [10] showed that it is sufficient for all 
+social choice functions whose domain is unrestricted. lavi,
+mu"alem and nisan [6] proved the sufficiency of weak 
+monotonicity for functions over order-based domains and gui,
+muller and vohra [5] proved sufficiency for order-based 
+domains with range constraints and for domains defined by
+other special types of linear inequality constraints. here we
+show the more general result, conjectured by lavi, mu"alem
+and nisan [6], that weak monotonicity is sufficient for 
+functions defined on any convex domain.

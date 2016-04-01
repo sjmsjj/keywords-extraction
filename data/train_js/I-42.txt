@@ -1,0 +1,20 @@
+distributed constraint optimization (dcop) is a general 
+framework that can model complex problems in multi-agent systems.
+several current algorithms that solve general dcop instances, 
+including adopt and dpop, arrange agents into a traditional 
+pseudotree structure. we introduce an extension to the dpop algorithm
+that handles an extended set of pseudotree arrangements. our 
+algorithm correctly solves dcop instances for pseudotrees that 
+include edges between nodes in separate branches. the algorithm
+also solves instances with traditional pseudotree arrangements 
+using the same procedure as dpop.
+we compare our algorithm with dpop using several metrics 
+including the induced width of the pseudotrees, the maximum 
+dimensionality of messages and computation, and the maximum 
+sequential path cost through the algorithm. we prove that for some 
+problem instances it is not possible to generate a traditional pseudotree
+using edge-traversal heuristics that will outperform a cross-edged
+pseudotree. we use multiple heuristics to generate pseudotrees and
+choose the best pseudotree in linear space-time complexity. for
+some problem instances we observe significant improvements in
+message and computation sizes compared to dpop.

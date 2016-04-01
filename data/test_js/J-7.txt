@@ -1,0 +1,33 @@
+in many settings, competing technologies - for example, 
+operating systems, instant messenger systems, or document 
+formatscan be seen adopting a limited amount of compatibility with one 
+another; in other words, the difficulty in using multiple technologies
+is balanced somewhere between the two extremes of impossibility
+and effortless interoperability. there are a range of reasons why
+this phenomenon occurs, many of which - based on legal, social,
+or business considerations - seem to defy concise mathematical
+models. despite this, we show that the advantages of limited 
+compatibility can arise in a very simple model of diffusion in social
+networks, thus offering a basic explanation for this phenomenon in
+purely strategic terms.
+our approach builds on work on the diffusion of innovations in
+the economics literature, which seeks to model how a new 
+technology a might spread through a social network of individuals who
+are currently users of technology b. we consider several ways of
+capturing the compatibility of a and b, focusing primarily on a
+model in which users can choose to adopt a, adopt b, or - at an
+extra cost - adopt both a and b. we characterize how the 
+ability of a to spread depends on both its quality relative to b, and
+also this additional cost of adopting both, and find some surprising
+non-monotonicity properties in the dependence on these 
+parameters: in some cases, for one technology to survive the introduction
+of another, the cost of adopting both technologies must be balanced
+within a narrow, intermediate range. we also extend the framework
+to the case of multiple technologies, where we find that a simple
+this work has been supported in part by nsf grants 
+ccf0325453, iis-0329064, cns-0403340, and bcs-0537606, a
+google research grant, a yahoo! research alliance grant, the
+institute for the social sciences at cornell, and the john d. and
+catherine t. macarthur foundation.
+model captures the phenomenon of two firms adopting a limited
+strategic alliance to defend against a new, third technology.

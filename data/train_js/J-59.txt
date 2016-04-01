@@ -1,0 +1,8 @@
+a set of jobs need to be served by a single server which can
+serve only one job at a time. jobs have processing times
+and incur waiting costs (linear in their waiting time). the
+jobs share their costs through compensation using monetary
+transfers. we characterize the shapley value rule for this
+model using fairness axioms. our axioms include a bound
+on the cost share of jobs in a group, efficiency, and some
+independence properties on the the cost share of a job.

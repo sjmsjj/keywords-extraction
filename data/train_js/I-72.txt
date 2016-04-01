@@ -1,0 +1,19 @@
+in online, dynamic environments, the services requested by 
+consumers may not be readily served by the providers. this requires
+the service consumers and providers to negotiate their service needs
+and offers. multiagent negotiation approaches typically assume
+that the parties agree on service content and focus on finding a
+consensus on service price. in contrast, this work develops an 
+approach through which the parties can negotiate the content of a 
+service. this calls for a negotiation approach in which the parties
+can understand the semantics of their requests and offers and learn
+each other"s preferences incrementally over time. accordingly, we
+propose an architecture in which both consumers and producers
+use a shared ontology to negotiate a service. through repetitive
+interactions, the provider learns consumers" needs accurately and
+can make better targeted offers. to enable fast and accurate 
+learning of preferences, we develop an extension to version space and
+compare it with existing learning techniques. we further develop
+a metric for measuring semantic similarity between services and
+compare the performance of our approach using different 
+similarity metrics.

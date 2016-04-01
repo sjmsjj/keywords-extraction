@@ -1,0 +1,20 @@
+agents that must reach agreements with other agents need to 
+reason about how their preferences, judgments, and beliefs might be
+aggregated with those of others by the social choice mechanisms
+that govern their interactions. the recently emerging field of 
+judgment aggregation studies aggregation from a logical perspective,
+and considers how multiple sets of logical formulae can be 
+aggregated to a single consistent set. as a special case, judgment
+aggregation can be seen to subsume classical preference 
+aggregation. we present a modal logic that is intended to support reasoning
+about judgment aggregation scenarios (and hence, as a special case,
+about preference aggregation): the logical language is interpreted
+directly in judgment aggregation rules. we present a sound and
+complete axiomatisation of such rules. we show that the logic can
+express aggregation rules such as majority voting; rule properties
+such as independence; and results such as the discursive paradox,
+arrow"s theorem and condorcet"s paradox - which are derivable
+as formal theorems of the logic. the logic is parameterised in such
+a way that it can be used as a general framework for comparing
+the logical properties of different types of aggregation - including
+classical preference aggregation.

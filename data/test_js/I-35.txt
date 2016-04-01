@@ -1,0 +1,19 @@
+norms are widely recognised as a means of coordinating
+multi-agent systems. the distributed management of norms
+is a challenging issue and we observe a lack of truly 
+distributed computational realisations of normative models. in
+order to regulate the behaviour of autonomous agents that
+take part in multiple, related activities, we propose a 
+normative model, the normative structure (ns), an artifact that
+is based on the propagation of normative positions 
+(obligations, prohibitions, permissions), as consequences of agents"
+actions. within a ns, conflicts may arise due to the dynamic
+nature of the mas and the concurrency of agents" actions.
+however, ensuring conflict-freedom of a ns at design time
+is computationally intractable. we show this by 
+formalising the notion of conflict, providing a mapping of nss into
+coloured petri nets and borrowing well-known theoretical
+results from that field. since online conflict resolution is
+required, we present a tractable algorithm to be employed
+distributedly. we then demonstrate that this algorithm is
+paramount for the distributed enactment of a ns.

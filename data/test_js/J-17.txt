@@ -1,0 +1,37 @@
+we consider the problem of makespan minimization on m
+unrelated machines in the context of algorithmic mechanism
+design, where the machines are the strategic players. this is
+a multidimensional scheduling domain, and the only known
+positive results for makespan minimization in such a domain
+are o(m)-approximation truthful mechanisms [22, 20]. we
+study a well-motivated special case of this problem, where
+the processing time of a job on each machine may either
+be low or high, and the low and high values are public
+and job-dependent. this preserves the 
+multidimensionality of the domain, and generalizes the restricted-machines
+(i.e., {pj, ∞}) setting in scheduling. we give a general 
+technique to convert any c-approximation algorithm to a 
+3capproximation truthful-in-expectation mechanism. this is
+one of the few known results that shows how to export 
+approximation algorithms for a multidimensional problem into
+truthful mechanisms in a black-box fashion. when the low
+and high values are the same for all jobs, we devise a 
+deterministic 2-approximation truthful mechanism. these are
+the first truthful mechanisms with non-trivial performance
+guarantees for a multidimensional scheduling domain.
+our constructions are novel in two respects. first, we
+do not utilize or rely on explicit price definitions to prove
+truthfulness; instead we design algorithms that satisfy 
+cycle monotonicity. cycle monotonicity [23] is a necessary
+and sufficient condition for truthfulness, is a generalization
+of value monotonicity for multidimensional domains. 
+however, whereas value monotonicity has been used extensively
+and successfully to design truthful mechanisms in 
+singledimensional domains, ours is the first work that leverages
+cycle monotonicity in the multidimensional setting. second,
+our randomized mechanisms are obtained by first 
+constructing a fractional truthful mechanism for a fractional 
+relaxation of the problem, and then converting it into a 
+truthfulin-expectation mechanism. this builds upon a technique
+of [16], and shows the usefulness of fractional mechanisms
+in truthful mechanism design.

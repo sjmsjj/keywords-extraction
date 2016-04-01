@@ -1,0 +1,26 @@
+the paradigm shift from device-oriented to service-oriented
+management has also implications to the area of event 
+correlation. today"s event correlation mainly addresses the 
+correlation of events as reported from management tools. 
+however, a correlation of user trouble reports concerning services
+should also be performed. this is necessary to improve the
+resolution time and to reduce the effort for keeping the 
+service agreements. we refer to such a type of correlation as
+service-oriented event correlation. the necessity to use this
+kind of event correlation is motivated in the paper.
+to introduce service-oriented event correlation for an it
+service provider, an appropriate modeling of the correlation
+workflow and of the information is necessary. therefore, we
+examine the process management frameworks it 
+infrastructure library (itil) and enhanced telecom operations map
+(etom) for their contribution to the workflow modeling in
+this area. the different kinds of dependencies that we find
+in our general scenario are then used to develop a 
+workflow for the service-oriented event correlation. the mnm
+service model, which is a generic model for it service 
+management proposed by the munich network management
+(mnm) team, is used to derive an appropriate information
+modeling. an example scenario, the web hosting service
+of the leibniz supercomputing center (lrz), is used to
+demonstrate the application of service-oriented event 
+correlation.
