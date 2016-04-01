@@ -84,7 +84,6 @@ class Keyword(object):
         for word in self.kw:
             if word in self.ans:
                 hit += 1
-        print hit/len(self.kw)
         return hit/len(self.kw), hit/len(self.ans)
 
 
@@ -186,15 +185,19 @@ class TextRank(Keyword, Graph):
 
 
 if __name__ == '__main__':
-    t = TextRank(sys.argv[1])
+    data_dir = sys.argv[1]
+    C = Closeness(data_dir)
+    T = TextRank(data_dir)
 
-    accuracy = recall = 0.0
-    flag = 0
+    Extractor = [C, T]
+    accuracy = [0.0] * len(Extractor)
+    count = 0
 
-    for filename in os.listdir(sys.argv[1]):
+    for filename in os.listdir(data_dir):
         if filename.endswith('txt'):
             ans_file = filename[:-3] + 'key'
-            flag += 1
-            t.fit(filename, ans_file)
-            accuracy += t.get_accuracy_recall()[0]
-    print accuracy/flag
+            count += 1
+            for index, E in enumerate(Extractor):
+                E.fit(filename, ans_file)
+                accuracy[index] += E.get_accuracy_recall()[0]
+    accuracy = [accu / count for accu in accuracy]
