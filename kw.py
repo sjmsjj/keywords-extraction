@@ -94,11 +94,13 @@ class Graph(object):
 
     def build_co_occurrence(self):
         self.co_occurrence = dict()
+        self.neighbors = defaultdict(list)
         for sentence in self.sentence_list:
             for w1 in sentence[:-1]:
                 for w2 in sentence[1:]:
                     if w1 != w2:
                         self.co_occurrence[(w1, w2)] = self.co_occurrence.get((w1, w2), 0) + 1
+                        self.neighbors[w1].append(w2)
 
     def build_undirected_weighted_edges(self):
         self.edges = dict()
@@ -122,12 +124,11 @@ class Closeness(Keyword, Graph):
         while queue:
             item = min(queue.items(), key = lambda item: item[1])[0]
             del queue[item]
-            for key in self.items:
-                if key != item:
-                    temp = self.dist[item] + self.edges[(item, key)]
-                    if temp < self.dist[key]:
-                        self.dist[key] = temp
-                        queue[key] = temp
+            for key in self.neighbors[item]:
+                temp = self.dist[item] + self.edges[(item, key)]
+                if temp < self.dist[key]:
+                    self.dist[key] = temp
+                    queue[key] = temp
 
     def get_keywords(self, filename):
         self.kw = []
@@ -180,7 +181,7 @@ class TextRank(Keyword, Graph):
                 old_score, new_score = new_score, dict()
             else:
                 break
-        temp = sorted(new_score.items(), key = lambda items: items[1], reverse = True)
+        temp = sorted(new_score.items(), key = lambda items: items[1], reverse = False)
         self.kw = [item[0] for item in temp][:rank]
 
 
