@@ -24,25 +24,21 @@ Class Solution is implemented to speed up the process to get accuracy from a lot
 import re
 import os
 import sys
-import threading
 from multiprocessing import Process, Queue, cpu_count
 from collections import defaultdict, deque
-import PorterStemmer as stem  
+import nltk
+from nltk.stem.porter import *
+from nltk.stem import WordNetLemmatizer
+from nltk.corpus import stopwords
 
 
 class Keyword(object):
     def __init__(self, data_dir):
         self.data_dir = data_dir
-        self.stemmer = stem.PorterStemmer()
-        self.stopwords = self.get_stopwords()
-
-    def get_stopwords(self):
-        stopwords = dict()
-        with open('stopwords.txt', 'r') as f:
-            for word in f:
-                stopwords[word.rstrip()] = 0
-        return stopwords
-
+        self.stopwords = stopwords.words('english')
+        self.stemmer = PorterStemmer()
+        self.lemmatizer = WordNetLemmatizer()
+       
     def get_sentence_list(self, filename):
         with open(self.data_dir + filename, 'r') as f:
             self.sentence_list = re.sub(r'[^a-z.?!-]', ' ', f.read())
@@ -56,7 +52,11 @@ class Keyword(object):
 
     def stem_words(self):
         for index, sentence in enumerate(self.sentence_list[:]):
-            self.sentence_list[index] = [self.stemmer.stem(word, 0, len(word) - 1) for word in sentence]
+            self.sentence_list[index] = [self.stemmer.stem(word) for word in sentence]
+
+    def lemmatize(self):
+        for index, sentence in enumerate(self.sentence_list[:]):
+            self.sentence_list[index] = [self.lemmatizer.lemmatize(word) for word in sentence]
 
     def get_items(self):
         self.items = []
@@ -69,6 +69,7 @@ class Keyword(object):
         self.get_sentence_list(filename)
         self.remove_stopwords()
         self.stem_words()
+        self.lemmatize()
         self.get_items()
 
     def fit(self, filename, ans_file):
@@ -192,12 +193,14 @@ class TextRank(Keyword, Graph):
         self.kw = [item[0] for item in temp][:rank]
 
 
-class Solution(object):
+class GraphMethod(object):
     def __init__(self, data_dir):
         self.data_dir = data_dir
         self.extractors = {'textrank': TextRank(data_dir), 'closeness' : Closeness(data_dir)}
         self.accuracy = {'textrank': 0.0, 'closeness' : 0.0}
+        self.recall = {'textrank': 0.0, 'closeness' : 0.0}
         self.q_accuracy = {'textrank': Queue(), 'closeness': Queue()}
+        self.q_recall = {'textrank': Queue(), 'closeness': Queue()}
         self.filelist = filter(lambda filename: filename.endswith('txt'), os.listdir(self.data_dir))
         self.q_filelist = Queue()
         self.nfiles = len(self.filelist)
@@ -212,8 +215,9 @@ class Solution(object):
             ans_file = filename[:-3]  + 'key'
             extractor.fit(filename, ans_file)
             self.q_accuracy[key].put(extractor.get_accuracy_recall()[0])
+            self.q_recall[key].put(extractor.get_accuracy_recall()[1])
 
-    def get_accuracy(self, key):
+    def get_accuracy_recall(self, key):
         for filename in self.filelist:
             self.q_filelist.put(filename)
         self.accuracy[key] = 0.0
@@ -226,21 +230,26 @@ class Solution(object):
             process.join()
         while not self.q_accuracy[key].empty():
             self.accuracy[key] += self.q_accuracy[key].get()
+            self.recall[key] += self.q_recall[key].get()
         self.accuracy[key] /= self.nfiles
-        return self.accuracy[key] 
+        self.recall[key] /= self.nfiles
+        return self.accuracy[key], self.recall[key] 
 
-    def get_accurancy_from_closeness_rank(self):
-        return self.get_accuracy('closeness')
+    def get_results_from_closeness_rank(self):
+        return self.get_accuracy_recall('closeness')
 
-    def get_accuracy_from_text_rank(self):
-        return self.get_accuracy('textrank')
+    def get_results_from_text_rank(self):
+        return self.get_accuracy_recall('textrank')
+
+    def get_all_results(self):
+        return [self.get_results_from_closeness_rank(), self.get_results_from_text_rank()]
 
 
 if __name__ == '__main__':
     data_dir = sys.argv[1]
-    solution = Solution(data_dir)
-    print solution.get_accuracy_from_text_rank()
-    print solution.get_accurancy_from_closeness_rank()
+    solution = GraphMethod(data_dir)
+    print solution.get_results_from_text_rank()
+    print solution.get_results_from_closeness_rank()
 
 
 
